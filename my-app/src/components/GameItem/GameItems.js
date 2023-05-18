@@ -4,7 +4,7 @@ import ImageBattlefield from "../Pages/Multimedia/battelfield5.png";
 import LogoEA from "../Pages/Multimedia/LOGOEA.png";
 
 const Game = () => {
-  const gameTitle = "Battelfield V";
+  const gameTitle = "Battlefield V no batellfiend";
   const platform = ["XBOX", "PS4", "PC"];
   const gameDeveloper = "EA Digital Illusion CE";
   const gameSize = "64 GB";
