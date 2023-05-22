@@ -3,9 +3,10 @@ import closeSesion from "../LogOut";
 import logooo from "../Pages/Multimedia/descarga1.png";
 import "./Navbar.css";
 
+
 function NavBar() {
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img src={logooo} height={45} id="LogoGG"></img>
@@ -83,6 +84,7 @@ function NavBar() {
             </form>
           </div>
         </div>
+        
         <li class="nav-item">
           <a type="submit" href="/" class="btn btn-primary btn-sm  mr-auto">
             Iniciar Sesion
@@ -94,6 +96,7 @@ function NavBar() {
         </li> */}
       </div>
     </nav>
+    
   );
 }
 

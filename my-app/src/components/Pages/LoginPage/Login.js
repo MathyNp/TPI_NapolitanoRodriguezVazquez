@@ -1,7 +1,19 @@
-import React, { createRef } from "react";
+import React, { createRef, useState,useEffect } from "react";
 import { app } from "../../../fb";
 
+
 const Login = (props) => {
+
+
+
+  const [usuario, setUsuario] = useState(null);
+  useEffect(() => {
+  app.auth().onAuthStateChanged((userFirebase) => {
+       console.log("Ya tienes iniciada sesion: ", userFirebase);
+    setUsuario(userFirebase);
+     });
+   }, []);
+
   const [isRegistered, setRegister] = React.useState(false);
   const createUser = (email1, password1) => {
     console.log(email1, password1);
