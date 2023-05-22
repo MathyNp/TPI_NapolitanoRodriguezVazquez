@@ -1,6 +1,7 @@
 import React from "react";
 import closeSesion from "../LogOut";
 import logooo from "../Pages/Multimedia/descarga1.png";
+import "./Navbar.css";
 
 function NavBar() {
   return (
@@ -20,18 +21,22 @@ function NavBar() {
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse mr-auto" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/Home">
-                Inicio
+              <a class="nav-link" aria-current="page" href="/Home">
+                {" "}
+                Inicio{" "}
               </a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="/Games">
-                Juegos
+                Juegos{" "}
               </a>
             </li>
+
             <li class="nav-item dropdown ">
               <a
                 class="nav-link dropdown-toggle"
@@ -41,7 +46,8 @@ function NavBar() {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                My Perfil
+                {" "}
+                Perfil{" "}
               </a>
               <ul
                 class="dropdown-menu"
@@ -49,28 +55,37 @@ function NavBar() {
               >
                 <li>
                   <a class="dropdown-item d" href="/EditProfile">
-                    Editar Perfil
+                    {" "}
+                    Editar Perfil{" "}
                   </a>
                 </li>
+
                 <li>
-                  <a class="dropdown-item ">Cerrar Sesion.</a>
+                  <a class="dropdown-item d" onClick={closeSesion}>
+                    {" "}
+                    Cerrar Sesion{" "}
+                  </a>
                 </li>
               </ul>
             </li>
           </ul>
+          <div class="search-container" style={{ marginLeft: "20px" }}>
+            <form action="/action_page.php">
+              <input
+                type="text"
+                placeholder="Buscar "
+                name="search"
+                style={{
+                  borderRadius: "30px",
+                  padding: "5px",
+                }}
+              ></input>
+            </form>
+          </div>
         </div>
         <li class="nav-item">
           <a type="submit" href="/" class="btn btn-primary btn-sm  mr-auto">
             Iniciar Sesion
-          </a>
-        </li>
-        <li class="nav-item">
-          <a
-            type="submit"
-            onClick={closeSesion}
-            class="btn btn-primary btn-sm  mr-auto"
-          >
-            Cerrar Sesion
           </a>
         </li>
 
