@@ -1,6 +1,7 @@
 import React from "react";
 import closeSesion from "../LogOut";
 import logooo from "../Pages/Multimedia/descarga1.png";
+import Search from "../Search/Search";
 
 function NavBar() {
   return (
@@ -58,6 +59,7 @@ function NavBar() {
               </ul>
             </li>
           </ul>
+          <Search/>
         </div>
         <li class="nav-item">
           <a type="submit" href="/" class="btn btn-primary btn-sm  mr-auto">
