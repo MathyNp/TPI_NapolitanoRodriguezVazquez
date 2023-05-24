@@ -1,8 +1,35 @@
-import React, { createRef } from "react";
+import React, { createRef, useState, useEffect } from "react";
 import { app } from "../../../fb";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-  const [isRegistered, setRegister] = React.useState(false);
+  let { state } = useLocation();
+  console.log(state);
+
+  const Statenavbar = () => {
+    let navbarst = state;
+    console.log(navbarst);
+  };
+  const navigate = useNavigate();
+
+  const Onlogin = (e) => {
+    e.preventDefault();
+    navigate("/", {
+      replace: true,
+      state: {
+        logged: true,
+      },
+    });
+  };
+  const [usuario, setUsuario] = useState(null);
+  useEffect(() => {
+    app.auth().onAuthStateChanged((userFirebase) => {
+      console.log("Ya tienes iniciada sesion: ", userFirebase);
+      setUsuario(userFirebase);
+    });
+  }, []);
+
+  const [isRegistered, setRegister] = useState(false);
   const createUser = (email1, password1) => {
     console.log(email1, password1);
     app
@@ -11,6 +38,7 @@ const Login = (props) => {
       .then((userFirebase) => {
         console.log("User Created: ", userFirebase);
         props.setUsuario(userFirebase);
+        state = true;
       });
   };
   const logInUser = (email1, password1) => {
@@ -20,6 +48,7 @@ const Login = (props) => {
       .then((userFirebase) => {
         console.log("Sesion iniciada con: ", userFirebase.user);
         props.setUsuario(userFirebase);
+        state = true;
       });
   };
   const submitHandler = (e) => {
@@ -44,7 +73,7 @@ const Login = (props) => {
       }}
     >
       <form
-        onSubmit={submitHandler}
+        onSubmit={(submitHandler, Onlogin)}
         style={{ textAlign: "center", width: "350px" }}
       >
         <div class="mb-3">
