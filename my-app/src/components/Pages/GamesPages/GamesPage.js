@@ -5,9 +5,6 @@ const GamesPage = () => {
   return (
     <div className="GamesConteiner">
       <Game />
-      <Game />
-      <Game />
-      <Game />
     </div>
   );
 };

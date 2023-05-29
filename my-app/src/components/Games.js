@@ -1,180 +1,95 @@
-import React, {useState} from 'react'
+import React from "react";
+import "./GameItem/GameItem.css";
+import { flushSync } from "react-dom";
 
-
-const Games = () => {
-    const [games, setGames] = useState([
-        {
-            id: 0,
-            title:"Battlefield V",
-            gender: "Shooter FPS",
-            developer: "EA",
-            platforms: ["Pc","Xbox","PS5"],
-            size: 64, 
-        }, 
-        {
-            id: 1,
-            title:"Call Of Duty Modern Warfare",
-            gender: "Shooter FPS",
-            developer: "EA",
-            platforms: ["Pc","Xbox","PS5"],
-            size: 64, 
-        },
-        {
-            id: 2,
-            title:"FIFA 23",
-            gender: "Shooter FPS",
-            developer: "EA",
-            platforms: ["Pc","Xbox","PS5"],
-            size: 64, 
-        },
-        {
-            id: 3,
-            title:"Resident Evil IV Remake",
-            gender: "Shooter FPS",
-            developer: "EA",
-            platforms: ["Pc","Xbox","PS5"],
-            size: 64, 
-        },
-        {
-            id: 4,
-            title:"League of Legends",
-            gender: "Shooter FPS",
-            developer: "EA",
-            platforms: ["Pc","Xbox","PS5"],
-            size: 64, 
-        },
-        {
-            id: 5,
-            title:"Days Gone",
-            gender: "Shooter FPS",
-            developer: "EA",
-            platforms: ["Pc","Xbox","PS5"],
-            size: 64, 
-        },
-        {
-            id: 6,
-            title:"Minecraft",
-            gender: "Shooter FPS",
-            developer: "EA",
-            platforms: ["Pc","Xbox","PS5"],
-            size: 64, 
-        },
-        {
-            id: 7,
-            title:"Forza Horizon",
-            gender: "Shooter FPS",
-            developer: "EA",
-            platforms: ["Pc","Xbox","PS5"],
-            size: 64, 
-        },
-        {
-            id: 8,
-            title:"Grand Theft Auto V",
-            gender: "Shooter FPS",
-            developer: "EA",
-            platforms: ["Pc","Xbox","PS5"],
-            size: 64, 
-        },
-        {
-            id: 9,
-            title:"Valorant",
-            gender: "Shooter FPS",
-            developer: "EA",
-            platforms: ["Pc","Xbox","PS5"],
-            size: 64, 
-        },
-        {
-            id: 10,
-            title:"Sonic",
-            gender: "Shooter FPS",
-            developer: "EA",
-            platforms: ["Pc","Xbox","PS5"],
-            size: 64, 
-        },
-        {
-            id: 11,
-            title:"Fortnite",
-            gender: "Shooter FPS",
-            developer: "EA",
-            platforms: ["Pc","Xbox","PS5"],
-            size: 64, 
-        },
-        {
-            id: 12,
-            title:"The elder scroll Skyrim",
-            gender: "RPG",
-            developer: "Bethesda",
-            platforms: ["Pc","PS3","PS4","Xbox One", "Nintendo Switch", "PS5"],
-            size: 12, 
-        },
-        {
-            id: 13,
-            title:"Gran Turismo",
-            gender: "Racing simulation",
-            developer: "Polyphony",
-            platforms: ["Pc","PS3","PS4","PS5"],
-            size: 89, 
-        },
-        {
-            id: 14,
-            title:"2K23",
-            gender: "Sports simulation",
-            developer: "2K Gaming",
-            platforms: ["Pc","Xbox One","PS5","PS4","Nintendo Switch"],
-            size: 64, 
-        },
-        {
-            id: 15,
-            title:"Stardew Valley",
-            gender: "ROL",
-            developer: "ConcernedApe",
-            platforms: ["Ps4","Nintendo Switch","Xbox One","Pc"],
-            size: 64, 
-        },
-        {
-            id: 16,
-            title:"Apex Legends",
-            gender: "Shooter FPS",
-            developer: "Respawn Entertainment",
-            platforms: ["Pc","Xbox One","PS5","PS4","Nintendo Switch"],
-            size: 64, 
-        },
-        {
-            id: 17,
-            title:"Counter Strike Global Offensive",
-            gender: "Shooter FPS",
-            developer: "Valve",
-            platforms: ["Pc","PS3"],
-            size: 64, 
-        },
-        {
-            id: 18,
-            title:"Day Z",
-            gender: "Shooter FPS",
-            developer: "EA",
-            platforms: ["Pc","Xbox","PS5"],
-            size: 64, 
-        },
-        {
-            id: 19,
-            title:"Mortal Kombat XI",
-            gender: "Fight",
-            developer: "NetherRealm Studios",
-            platforms: ["Pc","Xbox One","PS5","PS4","Nintendo Switch"],
-            size: 64, 
-        },
-        {
-            id: 20,
-            title:"WWE 2K23",
-            gender: "Fight simulation",
-            developer: "2K Games",
-            platforms: ["Pc","Xbox One","PS5","PS4"],
-            size: 80, 
-        }
-    ]);
+const GamesGalery = (props) => {
   return (
-    <div>Games</div>
-  )
-}
+    // <div className="card-group">
+    //   <div className="card">
+    //     <img src={props.img} className="card-img-top" alt={props.name}></img>
 
-export default Games
+    //     <div className="card-body">
+    //       {/* Boton motor grafico */}
+
+    //       <h5>{props.name}</h5>
+
+    //       {/* Boton genero */}
+
+    //       {props.genre.map((genre) => (
+    //         <button
+    //           key={genre}
+    //           type="disable"
+    //           style={{ borderRadius: "30px", margin: "10px", padding: "10px" }}
+    //           className="btn btn-dark btn-sm"
+    //         >
+    //           {genre}
+    //         </button>
+    //       ))}
+
+    //       {/* Botones plataformas */}
+
+    //       {props.platform.map((platform) => (
+    //         <button
+    //           key={platform}
+    //           type="disable"
+    //           style={{ borderRadius: "30px", margin: "10px", padding: "10px" }}
+    //           className="btn btn-success btn-sm"
+    //         >
+    //           {platform}{" "}
+    //         </button>
+    //       ))}
+
+    //       {/* Boton motor grafico */}
+
+    //       <button
+    //         type="disable"
+    //         style={{ borderRadius: "30px", margin: "10px", padding: "10px" }}
+    //         className="btn btn-danger btn-sm"
+    //       >
+    //         {props.graphicsEngine}
+    //       </button>
+    //     </div>
+    //   </div>
+    // </div>
+
+    <div
+      className="Galery"
+      style={{
+        margin: 0,
+        padding: 10,
+        justifyContent: "center",
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
+      <div class="card" style={{ marginLeft: 0 }}>
+        <img src={props.img} class="card-img-top" alt={props.name}></img>
+        <div class="card-body">
+          <h5 class="card-title">{props.name}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" id="buttons-genre">
+            {props.genre.map((genre) => (
+              <button
+                key={genre}
+                type="disable"
+                style={{
+                  borderRadius: "30px",
+                  margin: "10px",
+                  padding: "10px",
+                }}
+                className="btn btn-dark btn-sm"
+              >
+                {genre}
+              </button>
+            ))}
+          </li>
+          <li class="list-group-item">{props.platform}</li>
+          <li class="list-group-item">{props.developer}</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default GamesGalery;
