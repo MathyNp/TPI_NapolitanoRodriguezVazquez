@@ -10,6 +10,8 @@ const Games = () => {
       img: "https://gamiom.com/wp-content/uploads/2020/01/League-of-Legends-photo.jpg",
       platform: ["PC"],
       developer: "Riot Games",
+      description:
+        "League of Legends es un popular juego de estrategia en tiempo real en el género de los MOBA (Multiplayer Online Battle Arena). Los jugadores forman equipos y se enfrentan en emocionantes partidas donde deben destruir el nexo enemigo mientras controlan a poderosos campeones con habilidades únicas.",
     },
     {
       id: 1,
@@ -18,6 +20,8 @@ const Games = () => {
       img: "https://th.bing.com/th/id/OIP.smb9E3gmqMX-XT7EH3rZzAHaHa?pid=ImgDet&rs=1",
       platform: ["PC", "PlayStation 4", "Xbox One", "Nintendo Switch"],
       developer: "CD Projekt RED",
+      description:
+        "The Witcher 3: Wild Hunt es un aclamado videojuego de rol de acción desarrollado por CD Projekt Red y lanzado en 2015. Basado en la exitosa serie de libros del escritor polaco Andrzej Sapkowski, el juego te sumerge en un vasto mundo abierto de fantasía medieval llamado el Continente.",
     },
     {
       id: 2,
@@ -32,6 +36,8 @@ const Games = () => {
         "Xbox 360",
       ],
       developer: "Rockstar North",
+      description:
+        "Grand Theft Auto V es un juego de acción y aventura en Los Santos. Sigue a Michael, Franklin y Trevor, cada uno con su propia historia. Los jugadores realizan atracos y desafíos en un mundo abierto. Exploran la ciudad, participan en actividades y disfrutan del multijugador. La narrativa es rica y los personajes inolvidables.",
     },
     {
       id: 3,
@@ -232,7 +238,15 @@ const Games = () => {
   ]);
 
   return (
-    <div className="galery">
+    <div
+      className="galery"
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        marginRight: 0,
+        boxSizing: "border-box",
+      }}
+    >
       {games.map((games) => {
         return (
           <GamesGalery
@@ -242,6 +256,7 @@ const Games = () => {
             platform={games.platform}
             developer={games.developer}
             id={games.id}
+            description={games.description}
           />
         );
       })}

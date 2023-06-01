@@ -3,7 +3,6 @@ import closeSesion from "../LogOut";
 import logooo from "../Pages/Multimedia/descarga1.png";
 import "./Navbar.css";
 
-
 function NavBar() {
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
@@ -84,19 +83,14 @@ function NavBar() {
             </form>
           </div>
         </div>
-        
+
         <li class="nav-item">
           <a type="submit" href="/" class="btn btn-primary btn-sm  mr-auto">
             Iniciar Sesion
           </a>
         </li>
-
-        {/* <li class="nav ">
-          <a>My perfil</a>
-        </li> */}
       </div>
     </nav>
-    
   );
 }
 

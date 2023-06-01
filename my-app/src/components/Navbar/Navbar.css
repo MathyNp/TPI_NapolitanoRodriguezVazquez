@@ -10,7 +10,7 @@
 }
 
 .search-container {
-  height: 30px;
+  height: 35px;
   display: flex;
   cursor: pointer;
   padding: 10px 20px;
@@ -28,4 +28,3 @@
   transition: 0.8s;
   background: transparent;
 }
-
