@@ -7,7 +7,7 @@ import Game from "./GameItem/GameItems";
 import Error404 from "./Pages/Error404/Error404";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 import GamesPage from "./Pages/GamesPages/GamesPage";
-import Home from "./Pages/Home";
+import Home from "./Pages/Home/Home";
 function Routess() {
   return (
     <div>

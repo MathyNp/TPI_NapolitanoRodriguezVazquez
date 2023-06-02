@@ -1,5 +1,9 @@
 .nav-link:hover {
-  border-bottom: 2px solid white;
+  border-bottom: 3px solid coral;
+}
+
+.nav-link:active {
+  border-bottom: 3px solid coral;
 }
 
 .nav-link {
@@ -27,4 +31,12 @@
   font-weight: 500;
   transition: 0.8s;
   background: transparent;
+}
+
+nav {
+  border-bottom: 5px solid coral;
+}
+
+nav img {
+  border-radius: 70px;
 }

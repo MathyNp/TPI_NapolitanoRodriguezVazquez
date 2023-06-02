@@ -1,14 +1,14 @@
-import React from "react";
 import closeSesion from "../LogOut";
-import logooo from "../Pages/Multimedia/descarga1.png";
+import logo from "../Multimedia/LogoGG.png";
 import "./Navbar.css";
+import React, { useState, useEffect } from "react";
 
 function NavBar() {
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <img src={logooo} height={45} id="LogoGG"></img>
+          <img src={logo} height={45} id="LogoGG"></img>
         </a>
         <button
           class="navbar-toggler"
@@ -21,6 +21,19 @@ function NavBar() {
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="search-container" style={{ marginLeft: "20px" }}>
+          <form action="/action_page.php">
+            <input
+              type="text"
+              placeholder="Buscar "
+              name="search"
+              style={{
+                borderRadius: "30px",
+                padding: "5px",
+              }}
+            ></input>
+          </form>
+        </div>
 
         <div class="collapse navbar-collapse mr-auto" id="navbarNavDropdown">
           <ul class="navbar-nav">
@@ -69,19 +82,6 @@ function NavBar() {
               </ul>
             </li>
           </ul>
-          <div class="search-container" style={{ marginLeft: "20px" }}>
-            <form action="/action_page.php">
-              <input
-                type="text"
-                placeholder="Buscar "
-                name="search"
-                style={{
-                  borderRadius: "30px",
-                  padding: "5px",
-                }}
-              ></input>
-            </form>
-          </div>
         </div>
 
         <li class="nav-item">
