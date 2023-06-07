@@ -1,127 +1,105 @@
-import React, { createRef, useState, useEffect } from "react";
-import { app } from "../../../fb";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import firebaseApp from "../../../fb";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 
-const Login = (props) => {
-  let { state } = useLocation();
-  console.log(state);
+const auth = getAuth(firebaseApp);
+const firestone = getFirestore(firebaseApp);
 
-  const Statenavbar = () => {
-    let navbarst = state;
-    console.log(navbarst);
-  };
-  const navigate = useNavigate();
+function Login() {
+  const [isRegister, setIsRegister] = useState(false);
 
-  const Onlogin = (e) => {
-    e.preventDefault();
-    navigate("/", {
-      replace: true,
-      state: {
-        logged: true,
-      },
+  async function registerUser(email, password, rol) {
+    const infoUser = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    ).then((userFirebase) => {
+      return userFirebase;
     });
-  };
-  const [usuario, setUsuario] = useState(null);
-  useEffect(() => {
-    app.auth().onAuthStateChanged((userFirebase) => {
-      console.log("Ya tienes iniciada sesion: ", userFirebase);
-      setUsuario(userFirebase);
-    });
-  }, []);
+    console.log(infoUser.user.uid);
+    const docuRef = doc(firestone, `users/${infoUser.user.uid}`);
+    setDoc(docuRef, { correo: email, rol: rol });
+  }
 
-  const [isRegistered, setRegister] = useState(false);
-  const createUser = (email1, password1) => {
-    console.log(email1, password1);
-    app
-      .auth()
-      .createUserWithEmailAndPassword(email1, password1)
-      .then((userFirebase) => {
-        console.log("User Created: ", userFirebase);
-        props.setUsuario(userFirebase);
-        state = true;
-      });
-  };
-  const logInUser = (email1, password1) => {
-    app
-      .auth()
-      .signInWithEmailAndPassword(email1, password1)
-      .then((userFirebase) => {
-        console.log("Sesion iniciada con: ", userFirebase.user);
-        props.setUsuario(userFirebase);
-        state = true;
-      });
-  };
-  const submitHandler = (e) => {
+  function submitHandler(e) {
     e.preventDefault();
-    const email1 = e.target.emailField.value;
-    const password1 = e.target.passwordField.value;
-    if (isRegistered) {
-      createUser(email1, password1);
-    }
-    if (!isRegistered) {
-      logInUser(email1, password1);
-    }
-  };
+    const rol = "User";
+    const email = e.target.elements.emailField.value;
+    const password = e.target.elements.passwordField.value;
 
+    console.log("submit", email, password, rol);
+    if (isRegister) {
+      const username = e.target.elements.userField.value;
+      registerUser(email, password, username, rol);
+    } else {
+      signInWithEmailAndPassword(auth, email, password);
+    }
+  }
   return (
-    <div
-      style={{
-        alignItems: "center",
-        justifyContent: "center",
-        display: "flex",
-        marginTop: "50px",
-      }}
-    >
-      <form
-        onSubmit={(submitHandler, Onlogin)}
-        style={{ textAlign: "center", width: "350px" }}
+    <div>
+      <div
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          display: "flex",
+          marginTop: "50px",
+        }}
       >
-        <div class="mb-3">
+        <form
+          style={{ textAlign: "center", width: "350px" }}
+          onSubmit={submitHandler}
+        >
+          <div className="mb-3">
+            {isRegister ? (
+              <input
+                type="text"
+                id="userField"
+                minLength="6"
+                maxLength="12"
+                className="form-control"
+                placeholder="UserName"
+              ></input>
+            ) : (
+              <></>
+            )}
+            <input
+              type="email"
+              id="emailField"
+              minLength="5"
+              className="form-control"
+              placeholder="Email"
+              required
+            ></input>
+          </div>
+          <div className="mb-3">
+            <input
+              required
+              type="password"
+              id="passwordField"
+              minLength="6"
+              maxLength="15"
+              className="form-control"
+              placeholder="Contraseña"
+            ></input>
+          </div>
+          <div style={{ alignItems: "center" }}></div>
           <input
-            type="email"
-            id="emailField"
-            minLength="5"
-            class="form-control"
-            placeholder="Email"
-            required
-          ></input>
-        </div>
-        <div class="mb-3">
-          <input
-            required
-            type="password"
-            id="passwordField"
-            minlength="6"
-            maxLength="15"
-            class="form-control"
-            placeholder="Contraseña"
-          ></input>
-        </div>
-        <div style={{ alignItems: "center" }}>
-          <button
-            onClick={() => setRegister(!isRegistered)}
-            class="btn btn-dark btn-sm"
-            style={{ margin: "10px" }}
-          >
-            {isRegistered
-              ? "¿Ya tienes una cuenta? Iniciar Sesion"
-              : " No tienes cuenta? Registrate aqui"}
-          </button>
-        </div>
-        <div>
-          <button
             type="submit"
-            className="btn btn-dark btn-sm"
-            style={{ margin: "10px" }}
-          >
-            {""}
-            {isRegistered ? "Registrarse" : "Inicia Sesion"}
-            {""}
-          </button>
-        </div>
-      </form>
+            value={isRegister ? "Registrase" : "Inicia Sesion"}
+          ></input>
+        </form>
+        <button onClick={() => setIsRegister(!isRegister)}>
+          {isRegister ? "Ya tengo una cuenta" : "Quiero Registrarme"}
+        </button>
+      </div>
     </div>
   );
-};
+}
 
 export default Login;
