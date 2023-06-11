@@ -7,7 +7,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 import NavBar from "./components/Navbar/NavBar";
-import Login from "./components/Pages/LoginPage/Login";
+
 import Routess from "../src/components/Routess";
 
 const auth = getAuth(firebaseApp);

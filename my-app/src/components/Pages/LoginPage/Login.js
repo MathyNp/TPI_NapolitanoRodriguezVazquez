@@ -24,21 +24,20 @@ function Login() {
     });
     console.log(infoUser.user.uid);
     const docuRef = doc(firestone, `users/${infoUser.user.uid}`);
-    setDoc(docuRef, { correo: email, rol: rol, username: username });
+    setDoc(docuRef, { correo: email, rol: "User", username: username });
   }
 
   function submitHandler(e) {
     e.preventDefault();
 
-    const rol = "User";
     const email = e.target.elements.emailField.value;
     const password = e.target.elements.passwordField.value;
     // const username = e.target.elements.userField.value;
 
-    console.log("submit", email, password, rol);
+    console.log("submit", email, password);
     if (isRegister) {
       const username = e.target.elements.userField.value;
-      registerUser(email, password, username, rol);
+      registerUser(email, password, username);
     } else {
       signInWithEmailAndPassword(auth, email, password);
     }
