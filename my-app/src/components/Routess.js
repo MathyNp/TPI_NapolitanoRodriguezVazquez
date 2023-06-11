@@ -19,7 +19,13 @@ function Routess(props) {
           <Route
             exact
             path="/EditProfile"
-            element={<EditProfile rol={props.rol} state={props.state} />}
+            element={
+              <EditProfile
+                username={props.username}
+                state={props.state}
+                rol={props.rol}
+              />
+            }
           />
           <Route exact path="/Games" element={<GamesPage />} />
         </Routes>

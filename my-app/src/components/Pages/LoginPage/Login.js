@@ -14,7 +14,7 @@ const firestone = getFirestore(firebaseApp);
 function Login() {
   const [isRegister, setIsRegister] = useState(false);
 
-  async function registerUser(email, password, rol) {
+  async function registerUser(email, password, username, rol) {
     const infoUser = await createUserWithEmailAndPassword(
       auth,
       email,
@@ -24,14 +24,16 @@ function Login() {
     });
     console.log(infoUser.user.uid);
     const docuRef = doc(firestone, `users/${infoUser.user.uid}`);
-    setDoc(docuRef, { correo: email, rol: rol });
+    setDoc(docuRef, { correo: email, rol: rol, username: username });
   }
 
   function submitHandler(e) {
     e.preventDefault();
+
     const rol = "User";
     const email = e.target.elements.emailField.value;
     const password = e.target.elements.passwordField.value;
+    // const username = e.target.elements.userField.value;
 
     console.log("submit", email, password, rol);
     if (isRegister) {

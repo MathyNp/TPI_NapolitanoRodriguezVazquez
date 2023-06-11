@@ -88,7 +88,7 @@ function NavBar(props) {
         {props.state ? (
           <li class="nav-item">
             <a type="submit" href="/" class="btn btn-primary btn-sm  mr-auto">
-              Bienvenido, {props.rol}
+              Bienvenido, {props.username}
             </a>{" "}
           </li>
         ) : (
