@@ -1,6 +1,5 @@
 import React from "react";
 import Game from "../../GameItem/GameItems";
-import NavBar from "../../NavbarLogOut";
 
 const Home = () => {
   return (

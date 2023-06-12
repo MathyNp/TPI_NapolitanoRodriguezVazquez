@@ -1,9 +1,11 @@
-import closeSesion from "../LogOut";
+import React from "react";
+
 import logo from "../Multimedia/LogoGG.png";
 import "./Navbar.css";
-import React, { useState, useEffect } from "react";
-
-function NavBar() {
+import firebaseApp from "../../fb";
+import { getAuth, signOut } from "firebase/auth";
+const auth = getAuth(firebaseApp);
+function NavBar(props) {
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
       <div class="container-fluid">
@@ -21,19 +23,6 @@ function NavBar() {
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="search-container" style={{ marginLeft: "20px" }}>
-          <form action="/action_page.php">
-            <input
-              type="text"
-              placeholder="Buscar "
-              name="search"
-              style={{
-                borderRadius: "30px",
-                padding: "5px",
-              }}
-            ></input>
-          </form>
-        </div>
 
         <div class="collapse navbar-collapse mr-auto" id="navbarNavDropdown">
           <ul class="navbar-nav">
@@ -50,45 +39,59 @@ function NavBar() {
               </a>
             </li>
 
-            <li class="nav-item dropdown ">
-              <a
-                class="nav-link dropdown-toggle"
-                href="/"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                {" "}
-                Perfil{" "}
-              </a>
-              <ul
-                class="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li>
-                  <a class="dropdown-item d" href="/EditProfile">
-                    {" "}
-                    Editar Perfil{" "}
-                  </a>
-                </li>
+            {props.state ? (
+              <li className="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="/"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  {props.rol}
+                </a>
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <li>
+                    <a class="dropdown-item d" href="/EditProfile">
+                      {" "}
+                      Editar Perfil{" "}
+                    </a>
+                  </li>
 
-                <li>
-                  <a class="dropdown-item d" onClick={closeSesion}>
-                    {" "}
-                    Cerrar Sesion{" "}
-                  </a>
-                </li>
-              </ul>
-            </li>
+                  <li>
+                    <a class="dropdown-item d" onClick={() => signOut(auth)}>
+                      {" "}
+                      Cerrar Sesion{" "}
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            ) : (
+              <li class="nav-item">
+                <a className="nav-link" href="/">
+                  Iniciar Sesion / Registrarse
+                </a>
+              </li>
+            )}
           </ul>
+          <div class="search-container" style={{ marginLeft: "20px" }}>
+            <form action="/action_page.php">
+              <input
+                type="text"
+                placeholder="Buscar "
+                name="search"
+                style={{
+                  borderRadius: "30px",
+                  padding: "5px",
+                }}
+              ></input>
+            </form>
+          </div>
         </div>
-
-        <li class="nav-item">
-          <a type="submit" href="/" class="btn btn-primary btn-sm  mr-auto">
-            Iniciar Sesion
-          </a>
-        </li>
       </div>
     </nav>
   );
