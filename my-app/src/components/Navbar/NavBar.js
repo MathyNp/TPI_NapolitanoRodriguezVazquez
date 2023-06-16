@@ -49,7 +49,7 @@ function NavBar(props) {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  {props.rol}
+                  {props.username}
                 </a>
                 <ul
                   class="dropdown-menu"

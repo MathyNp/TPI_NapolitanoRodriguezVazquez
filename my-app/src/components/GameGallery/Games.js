@@ -6,17 +6,15 @@ const GamesGalery = (props) => {
     <div
       className="Galery"
       style={{
-        marginLeft: 30,
-        marginTop: 30,
-        marginRight: 30,
-        marginBottom: 20,
+        margin: "auto",
+        marginTop: 20,
       }}
     >
       <div
         className="card"
         style={{
-          width: 530,
-          Height: 900,
+          width: 300,
+          Height: 700,
           border: "none",
         }}
       >
@@ -27,7 +25,7 @@ const GamesGalery = (props) => {
             src={props.img}
             className="card-img-top"
             alt={props.name}
-            style={{ width: 530, height: 570, marginBottom: 0 }}
+            style={{ width: 300, height: 275 }}
           />
           {/* VALORACION */}
           <button
@@ -36,14 +34,18 @@ const GamesGalery = (props) => {
               position: "absolute",
               top: "90%",
               left: "90%",
-              transform: "translate(-75%, -75%)",
-              borderRadius: 100,
-              width: 70,
-              height: 70,
-              fontSize: 30,
+              transform: "translate(-200%, -640%)",
+              borderRadius: 80,
+              width: 80,
+              height: 40,
+              fontSize: 15,
+              backgroundColor: "coral",
+              border: "none",
+              color: "whitesmoke",
+              marginTop: 10,
             }}
           >
-            5
+            {props.score} pts.
           </button>
         </div>
 
@@ -56,6 +58,7 @@ const GamesGalery = (props) => {
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: "coral",
+            color: "whitesmoke",
           }}
         >
           <h4 className="card-title">{props.name}</h4>
@@ -65,7 +68,12 @@ const GamesGalery = (props) => {
         <ul className="list-group list-group-flush text-bg-dark">
           <li
             className="list-group-item text-bg-dark"
-            style={{ maxHeight: 130, minHeight: 130 }}
+            style={{
+              maxHeight: 150,
+              minHeight: 150,
+              overflowY: "scroll",
+              scrollbarColor: "coral",
+            }}
           >
             {props.description}
           </li>
@@ -82,15 +90,14 @@ const GamesGalery = (props) => {
             }}
           >
             <button
+              id="genre"
               style={{
-                backgroundColor: "coral",
-                color: "#2d3035",
-                borderRadius: 40,
                 padding: 7,
-                fontStyle: "italic",
                 color: "whitesmoke",
                 border: "none",
                 margin: 9,
+                fontSize: 12,
+                backgroundColor: "coral",
               }}
             >
               {props.genre}
@@ -101,10 +108,11 @@ const GamesGalery = (props) => {
               style={{
                 backgroundColor: "coral",
                 color: "#2d3035",
-                padding: 7,
-                fontStyle: "italic",
                 border: "none",
                 margin: 9,
+                color: "whitesmoke",
+                fontSize: 10,
+                maxHeight: 50,
               }}
             >
               {props.developer}

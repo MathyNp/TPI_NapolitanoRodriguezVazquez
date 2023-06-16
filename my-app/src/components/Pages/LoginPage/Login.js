@@ -7,14 +7,16 @@ import {
 } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const auth = getAuth(firebaseApp);
 const firestone = getFirestore(firebaseApp);
 
 function Login() {
   const [isRegister, setIsRegister] = useState(false);
+  const navigation = useNavigate();
 
-  async function registerUser(email, password, rol) {
+  async function registerUser(email, password, username, rol) {
     const infoUser = await createUserWithEmailAndPassword(
       auth,
       email,
@@ -24,19 +26,20 @@ function Login() {
     });
     console.log(infoUser.user.uid);
     const docuRef = doc(firestone, `users/${infoUser.user.uid}`);
-    setDoc(docuRef, { correo: email, rol: rol });
+    setDoc(docuRef, { correo: email, rol: "User", username: username });
   }
 
   function submitHandler(e) {
     e.preventDefault();
-    const rol = "User";
+
     const email = e.target.elements.emailField.value;
     const password = e.target.elements.passwordField.value;
+    // const username = e.target.elements.userField.value;
 
-    console.log("submit", email, password, rol);
+    console.log("submit", email, password);
     if (isRegister) {
       const username = e.target.elements.userField.value;
-      registerUser(email, password, username, rol);
+      registerUser(email, password, username);
     } else {
       signInWithEmailAndPassword(auth, email, password);
     }
@@ -63,9 +66,22 @@ function Login() {
           onSubmit={submitHandler}
         >
           <div class="mb-3">
+            {isRegister ? (
+              <div class="mb-3">
+                <input
+                  type="text"
+                  id="userField"
+                  maxLength="12"
+                  className="form-control"
+                  placeholder="UserName"
+                />
+              </div>
+            ) : (
+              <> </>
+            )}
             <input
               type="email"
-              class="form-control"
+              className="form-control"
               id="emailField"
               aria-describedby="emailHelp"
               placeholder="Email"
@@ -77,65 +93,25 @@ function Login() {
             <input
               type="password"
               class="form-control"
-              id="exampleInputPassword1"
-              placeholder="Contrasena"
+              id="passwordField"
+              placeholder="Contraseña"
+              minLength="6"
+              maxLength="15"
               required
             />
           </div>
 
-          {isRegister ? (
-            <div class="mb-3">
-              <input
-                type="text"
-                id="userField"
-                minLength="6"
-                maxLength="12"
-                className="form-control"
-                placeholder="UserName"
-              />
-            </div>
-          ) : (
-            <> </>
-          )}
-          <button type="submit" class="btn btn-primary">
-            Iniciar Sesion
-          </button>
+          <input
+            type="submit"
+            class="btn btn-primary"
+            value={isRegister ? "Registrase" : "Inicia Sesion"}
+          ></input>
         </form>
+        <button onClick={() => setIsRegister(!isRegister)}>
+          {isRegister ? "Ya tengo una cuenta" : "Quiero Registrarme"}
+        </button>
       </div>
     </div>
-
-    //         )}
-    //         <input
-    //           type="email"
-    //           id="emailField"
-    //           minLength="5"
-    //           className="form-control"
-    //           placeholder="Email"
-    //           required
-    //         ></input>
-    //       </div>
-    //       <div className="mb-3">
-    //         <input
-    //           required
-    //           type="password"
-    //           id="passwordField"
-    //           minLength="6"
-    //           maxLength="15"
-    //           className="form-control"
-    //           placeholder="Contraseña"
-    //         ></input>
-    //       </div>
-    //       <div style={{ alignItems: "center" }}></div>
-    //       <input
-    //         type="submit"
-    //         value={isRegister ? "Registrase" : "Inicia Sesion"}
-    //       ></input>
-    //     </form>
-    //     <button onClick={() => setIsRegister(!isRegister)}>
-    //       {isRegister ? "Ya tengo una cuenta" : "Quiero Registrarme"}
-    //     </button>
-    //   </div>
-    // </div>
   );
 }
 

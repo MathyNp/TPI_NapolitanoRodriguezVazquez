@@ -12,6 +12,7 @@ const Games = () => {
       developer: "Riot Games",
       description:
         "League of Legends es un popular juego de estrategia en tiempo real en el género de los MOBA (Multiplayer Online Battle Arena). Los jugadores forman equipos y se enfrentan en emocionantes partidas donde deben destruir el nexo enemigo mientras controlan a poderosos campeones con habilidades únicas.",
+      score: 0,
     },
     {
       id: 1,
@@ -22,6 +23,7 @@ const Games = () => {
       developer: "CD Projekt RED",
       description:
         "The Witcher 3: Wild Hunt es un aclamado videojuego de rol de acción desarrollado por CD Projekt Red y lanzado en 2015. Basado en la exitosa serie de libros del escritor polaco Andrzej Sapkowski, el juego te sumerge en un vasto mundo abierto de fantasía medieval llamado el Continente.",
+      score: 0,
     },
     {
       id: 2,
@@ -38,6 +40,7 @@ const Games = () => {
       developer: "Rockstar North",
       description:
         "Grand Theft Auto V es un juego de acción y aventura en Los Santos. Sigue a Michael, Franklin y Trevor, cada uno con su propia historia. Los jugadores realizan atracos y desafíos en un mundo abierto. Exploran la ciudad, participan en actividades y disfrutan del multijugador. La narrativa es rica y los personajes inolvidables.",
+      score: 0,
     },
     {
       id: 3,
@@ -49,6 +52,7 @@ const Games = () => {
       developer: "Nintendo EPD",
       description:
         "En The Legend of Zelda: Breath of the Wild, el jugador asume el papel de Link, quien despierta después de un largo sueño en un mundo postapocalíptico. Su misión es derrotar a Ganon y salvar al reino de Hyrule.",
+      score: 0,
     },
     {
       id: 4,
@@ -67,6 +71,7 @@ const Games = () => {
       developer: "Epic Games ",
       description:
         " Fortnite es un popular videojuego de batalla real desarrollado por Epic Games. Los jugadores luchan en una isla hasta que solo queda un ganador. Combina elementos de construcción, acción y estrategia. Su estilo artístico único, eventos en vivo y actualizaciones constantes lo han convertido en un juego muy popular y emocionante.",
+      score: 0,
     },
     {
       id: 5,
@@ -85,6 +90,7 @@ const Games = () => {
       developer: "Mojang Studios",
       description:
         "Los jugadores exploran un vasto paisaje, recolectan recursos y construyen estructuras utilizando bloques. Pueden enfrentarse a enemigos, criar animales y cultivar cultivos para sobrevivir. Con su estilo visual distintivo y una amplia comunidad de jugadores, Minecraft ofrece una experiencia creativa sin límites.",
+      score: 0,
     },
     {
       id: 6,
@@ -93,6 +99,8 @@ const Games = () => {
       img: "https://1.bp.blogspot.com/-Ilc0C9BjHLs/V0QsjCyEK5I/AAAAAAABOUc/IbYf6dEfQxIx-2AyuyMEeiMPESLsaFhoACLcB/s1600/overwatch-game-cover.jpg",
       platform: ["PC", "PlayStation 4", "Xbox One", "Nintendo Switch"],
       graphicsEngine: "Custom (Derived from Source engine)",
+      description: "sd",
+      score: 0,
     },
     {
       id: 7,
@@ -101,6 +109,7 @@ const Games = () => {
       img: "https://th.bing.com/th/id/OIP.XyzJMuq152Nds6urQ0GnMAHaHa?pid=ImgDet&rs=1",
       platform: ["PC", "PlayStation 4", "Xbox One", "Stadia"],
       graphicsEngine: "RAGE",
+      score: 0,
     },
     {
       id: 8,
@@ -109,6 +118,7 @@ const Games = () => {
       img: "https://assets1.ignimgs.com/2018/06/13/super-smash-btros-ultimate---button-0001-1528851298611.jpg",
       platform: ["Nintendo Switch"],
       graphicsEngine: "Proprietary",
+      score: 0,
     },
     {
       id: 9,
@@ -123,6 +133,7 @@ const Games = () => {
         "Xbox Series X/S",
       ],
       graphicsEngine: "IW Engine",
+      score: 0,
     },
     {
       id: 10,
@@ -137,6 +148,7 @@ const Games = () => {
         "Xbox Series X/S",
       ],
       graphicsEngine: "AnvilNext 2.0",
+      score: 0,
     },
     {
       id: 11,
@@ -152,6 +164,7 @@ const Games = () => {
         "Nintendo Switch",
       ],
       graphicsEngine: "Frostbite 3",
+      score: 0,
     },
     {
       id: 12,
@@ -166,6 +179,7 @@ const Games = () => {
         "Xbox Series X/S",
       ],
       graphicsEngine: "RE Engine",
+      score: 0,
     },
     {
       id: 13,
@@ -181,6 +195,7 @@ const Games = () => {
         "Android",
       ],
       graphicsEngine: "XNA",
+      score: 0,
     },
     {
       id: 14,
@@ -189,6 +204,7 @@ const Games = () => {
       img: "https://1.bp.blogspot.com/-1nzqgs8_vaE/Xy4UIiNcodI/AAAAAAAAThg/gwz6tELY9t0g8ENjx8WQH-6bCLc9KFYwQCLcBGAsYHQ/s1600/Horizon%2BZero%2BDawn%2BPC%2BCover%2BCaratula-www.juegosparawindows.com.jpg",
       platform: ["PlayStation 4", "PlayStation 5", "PC"],
       graphicsEngine: "Decima Engine",
+      score: 0,
     },
     {
       id: 15,
@@ -197,6 +213,7 @@ const Games = () => {
       img: "https://th.bing.com/th/id/R.23f0c9a68ec1b01009591052fb38c8d8?rik=ZUKvcwu3k8SUUg&pid=ImgRaw&r=0",
       platform: ["Nintendo Switch"],
       graphicsEngine: "Proprietary",
+      score: 0,
     },
     {
       id: 16,
@@ -205,6 +222,7 @@ const Games = () => {
       img: "https://th.bing.com/th/id/R.5e4e3439700625b459fa04a118b91e87?rik=ANNmhVZIkgCviQ&pid=ImgRaw&r=0",
       platform: ["PlayStation 4", "PlayStation 5"],
       graphicsEngine: "Decima Engine",
+      score: 0,
     },
     {
       id: 17,
@@ -213,6 +231,7 @@ const Games = () => {
       img: "https://d.newsweek.com/en/full/1574934/animal-crossing-new-horizons-logo-box-art.jpg",
       platform: ["Nintendo Switch"],
       graphicsEngine: "Proprietary",
+      score: 0,
     },
     {
       id: 18,
@@ -227,6 +246,7 @@ const Games = () => {
         "Xbox Series X/S",
       ],
       graphicsEngine: "REDengine",
+      score: 0,
     },
     {
       id: 19,
@@ -235,14 +255,7 @@ const Games = () => {
       img: "https://th.bing.com/th/id/R.a2c65f253cb289cb7f1551691979d1a7?rik=pss4tFZb4VbX4w&riu=http%3a%2f%2fsolismagazine.com%2fwp-content%2fuploads%2f2020%2f04%2ffinal-fantasy-vii-remake-button-fin-1586205679705.jpg&ehk=y1uJ9MCEF7l%2bq%2b3PFceppyHJoBxJDD3VdduTbOKvfqU%3d&risl=&pid=ImgRaw&r=0",
       platform: ["PlayStation 4", "PlayStation 5"],
       graphicsEngine: "Unreal Engine 4",
-    },
-    {
-      id: 22,
-      name: "Hades",
-      genre: "Roguelike",
-      img: "https://www.gamelegant.com/media/2020/06/hades-cover-scaled.jpg",
-      platform: ["PC", "PlayStation 5", "Xbox Series X/S", "Nintendo Switch"],
-      graphicsEngine: "Custom (Derived from Unity)",
+      score: 0,
     },
   ]);
 
@@ -266,6 +279,7 @@ const Games = () => {
             developer={games.developer}
             id={games.id}
             description={games.description}
+            score={games.score}
           />
         );
       })}
