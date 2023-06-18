@@ -45,7 +45,13 @@ function Login() {
     }
   }
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <div
         style={{
           textAlign: "center",
@@ -54,17 +60,25 @@ function Login() {
           display: "flex",
           margin: "50px",
           backgroundColor: "#212529",
-          padding: "50px",
-          borderRadius: "40px",
+          padding: "auto",
+          paddingTop: "30px",
+          paddingBottom: "40px",
+          borderRadius: "20px",
+          width: "450px",
+          borderBottom: "5px solid coral",
         }}
       >
         <form
           style={{
             textAlign: "center",
-            width: "400px",
+            width: "350px",
           }}
           onSubmit={submitHandler}
         >
+          <h2 style={{ color: "whitesmoke" }}>
+            {" "}
+            {isRegister ? "Formulario de registro" : "Iniciar sesion"}{" "}
+          </h2>
           <div class="mb-3">
             {isRegister ? (
               <div class="mb-3">
@@ -103,13 +117,18 @@ function Login() {
 
           <input
             type="submit"
-            class="btn btn-primary"
+            class="btn btn-light"
             value={isRegister ? "Registrase" : "Inicia Sesion"}
           ></input>
+
+          <button
+            onClick={() => setIsRegister(!isRegister)}
+            className="btn btn-light"
+            style={{ marginLeft: 7 }}
+          >
+            {isRegister ? "Ya tengo una cuenta" : "Quiero Registrarme"}
+          </button>
         </form>
-        <button onClick={() => setIsRegister(!isRegister)}>
-          {isRegister ? "Ya tengo una cuenta" : "Quiero Registrarme"}
-        </button>
       </div>
     </div>
   );
