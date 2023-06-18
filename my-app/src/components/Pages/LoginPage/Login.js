@@ -110,7 +110,7 @@ function Login() {
         <button onClick={() => setIsRegister(!isRegister)}>
           {isRegister ? "Ya tengo una cuenta" : "Quiero Registrarme"}
         </button>
-      </div>
+        </div>   
     </div>
   );
 }
