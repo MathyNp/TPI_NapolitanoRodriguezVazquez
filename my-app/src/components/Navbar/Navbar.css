@@ -1,3 +1,42 @@
-.NavbarComplete a:hover {
-  background-color: red;
+.nav-link:hover {
+  border-bottom: 3px solid coral;
+}
+
+.nav-link:active {
+  border-bottom: 3px solid coral;
+}
+
+.nav-link {
+  transition: all 0.2s;
+  opacity: 50;
+  margin-left: 35px;
+  border-radius: 2px;
+}
+
+.search-container {
+  height: 35px;
+  display: flex;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 10px;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.search-container input {
+  width: 300;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  transition: 0.8s;
+  background: transparent;
+}
+
+nav {
+  border-bottom: 5px solid coral;
+}
+
+nav img {
+  border-radius: 70px;
 }

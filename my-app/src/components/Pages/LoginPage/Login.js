@@ -1,98 +1,118 @@
-import React, { createRef } from "react";
-import { app } from "../../../fb";
+import React, { useState } from "react";
+import firebaseApp from "../../../fb";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
-const Login = (props) => {
-  const [isRegistered, setRegister] = React.useState(false);
-  const createUser = (email1, password1) => {
-    console.log(email1, password1);
-    app
-      .auth()
-      .createUserWithEmailAndPassword(email1, password1)
-      .then((userFirebase) => {
-        console.log("User Created: ", userFirebase);
-        props.setUsuario(userFirebase);
-      });
-  };
-  const logInUser = (email1, password1) => {
-    app
-      .auth()
-      .signInWithEmailAndPassword(email1, password1)
-      .then((userFirebase) => {
-        console.log("Sesion iniciada con: ", userFirebase.user);
-        props.setUsuario(userFirebase);
-      });
-  };
-  const submitHandler = (e) => {
+const auth = getAuth(firebaseApp);
+const firestone = getFirestore(firebaseApp);
+
+function Login() {
+  const [isRegister, setIsRegister] = useState(false);
+  const navigation = useNavigate();
+
+  async function registerUser(email, password, username, rol) {
+    const infoUser = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    ).then((userFirebase) => {
+      return userFirebase;
+    });
+    console.log(infoUser.user.uid);
+    const docuRef = doc(firestone, `users/${infoUser.user.uid}`);
+    setDoc(docuRef, { correo: email, rol: "User", username: username });
+  }
+
+  function submitHandler(e) {
     e.preventDefault();
-    const email1 = e.target.emailField.value;
-    const password1 = e.target.passwordField.value;
-    if (isRegistered) {
-      createUser(email1, password1);
-    }
-    if (!isRegistered) {
-      logInUser(email1, password1);
-    }
-  };
 
+    const email = e.target.elements.emailField.value;
+    const password = e.target.elements.passwordField.value;
+    // const username = e.target.elements.userField.value;
+
+    console.log("submit", email, password);
+    if (isRegister) {
+      const username = e.target.elements.userField.value;
+      registerUser(email, password, username);
+    } else {
+      signInWithEmailAndPassword(auth, email, password);
+    }
+  }
   return (
-    <div
-      style={{
-        alignItems: "center",
-        justifyContent: "center",
-        display: "flex",
-        marginTop: "50px",
-      }}
-    >
-      <form
-        onSubmit={submitHandler}
-        style={{ textAlign: "center", width: "350px" }}
+    <div>
+      <div
+        style={{
+          textAlign: "center",
+          alignItems: "center",
+          justifyContent: "center",
+          display: "flex",
+          margin: "50px",
+          backgroundColor: "#212529",
+          padding: "50px",
+          borderRadius: "40px",
+        }}
       >
-        <div class="mb-3">
+        <form
+          style={{
+            textAlign: "center",
+            width: "400px",
+          }}
+          onSubmit={submitHandler}
+        >
+          <div class="mb-3">
+            {isRegister ? (
+              <div class="mb-3">
+                <input
+                  type="text"
+                  id="userField"
+                  maxLength="12"
+                  className="form-control"
+                  placeholder="UserName"
+                />
+              </div>
+            ) : (
+              <> </>
+            )}
+            <input
+              type="email"
+              className="form-control"
+              id="emailField"
+              aria-describedby="emailHelp"
+              placeholder="Email"
+              minLength="5"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="passwordField"
+              placeholder="Contraseña"
+              minLength="6"
+              maxLength="15"
+              required
+            />
+          </div>
+
           <input
-            type="email"
-            id="emailField"
-            minLength="5"
-            class="form-control"
-            placeholder="Email"
-            required
-          ></input>
-        </div>
-        <div class="mb-3">
-          <input
-            required
-            type="password"
-            id="passwordField"
-            minlength="6"
-            maxLength="15"
-            class="form-control"
-            placeholder="Contraseña"
-          ></input>
-        </div>
-        <div style={{ alignItems: "center" }}>
-          <button
-            onClick={() => setRegister(!isRegistered)}
-            class="btn btn-dark btn-sm"
-            style={{ margin: "10px" }}
-          >
-            {isRegistered
-              ? "¿Ya tienes una cuenta? Iniciar Sesion"
-              : " No tienes cuenta? Registrate aqui"}
-          </button>
-        </div>
-        <div>
-          <button
             type="submit"
-            className="btn btn-dark btn-sm"
-            style={{ margin: "10px" }}
-          >
-            {""}
-            {isRegistered ? "Registrarse" : "Inicia Sesion"}
-            {""}
-          </button>
-        </div>
-      </form>
+            class="btn btn-primary"
+            value={isRegister ? "Registrase" : "Inicia Sesion"}
+          ></input>
+        </form>
+        <button onClick={() => setIsRegister(!isRegister)}>
+          {isRegister ? "Ya tengo una cuenta" : "Quiero Registrarme"}
+        </button>
+      </div>
     </div>
   );
-};
+}
 
 export default Login;

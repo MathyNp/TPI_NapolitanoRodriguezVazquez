@@ -1,6 +1,6 @@
 import React from "react";
 import { app } from "../fb";
-import NavbarLogOut from "./NavbarLogOut";
+
 // import { useEffect } from "react";
 // import { useState } from "react";
 
@@ -17,7 +17,6 @@ const closeSesion = () => {
   console.log("Se a cerrado SU sesion.");
   return (
     <div>
-      <NavbarLogOut />
       <button onClick={closeSesion}>LogOut</button>
     </div>
   );

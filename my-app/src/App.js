@@ -1,26 +1,60 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Game from "./components/GameItem/GameItems";
-import { app } from "./fb";
-import React, { useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+
+import React, { useState } from "react";
+import firebaseApp from "./fb";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+
 import NavBar from "./components/Navbar/NavBar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "./components/Pages/LoginPage/Login";
-import Routess from "./components/Routess";
+
+import Routess from "../src/components/Routess";
+import Footer from "../src/components/Footer/Footer";
+
+const auth = getAuth(firebaseApp);
+const firestone = getFirestore(firebaseApp);
 
 function App() {
-  const [usuario, setUsuario] = React.useState(null);
-  useEffect(() => {
-    app.auth().onAuthStateChanged((userFirebase) => {
-      console.log("Ya tienes iniciada sesion: ", userFirebase);
-      setUsuario(userFirebase);
+  const [user, setUser] = useState(null);
+
+  async function getUsername(uid) {
+    const docuRef = doc(firestone, `users/${uid}`);
+    const docuEncrypted = await getDoc(docuRef);
+    const inff = docuEncrypted.data().username;
+    return inff;
+  }
+  // FUNCION DONDE SE GUARDAN LOS DATOS DEL USUARIO CREADO.
+  function userFirebaseData(userFirebase) {
+    getUsername(userFirebase.uid).then((username) => {
+      const userData = {
+        uid: userFirebase.uid,
+        email: userFirebase.email,
+        username: username,
+        rol: "User",
+      };
+      setUser(userData);
+      console.log("userdata", userData);
     });
-  }, []);
+  }
+
+  onAuthStateChanged(auth, (userFirebase) => {
+    if (userFirebase) {
+      if (!user) {
+        userFirebaseData(userFirebase);
+      }
+    } else {
+      setUser(null);
+    }
+  });
   return (
     <div className="App">
-      <NavBar />
-      <Routess />
+      {user ? <NavBar state={user} username={user.username} /> : <NavBar />}
+      {user ? (
+        <Routess rol={user.rol} state={user} username={user.username} />
+      ) : (
+        <Routess />
+      )}
+      <Footer />
     </div>
   );
 }
