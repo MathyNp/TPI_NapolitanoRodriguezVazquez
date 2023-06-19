@@ -27,7 +27,6 @@ const EditProfile = (props) => {
       {props.state ? (
         <>
           <h1>Modificar Perfil.</h1> <h2>¡Hola {props.username}!</h2>
-          <h1>Modificar Perfil.</h1> <h2>¡Hola {props.rol}!</h2>
           <div>
             <p>¿Que desea modificar?</p>
 

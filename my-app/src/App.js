@@ -9,6 +9,7 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import NavBar from "./components/Navbar/NavBar";
 
 import Routess from "../src/components/Routess";
+import Footer from "../src/components/Footer/Footer";
 
 const auth = getAuth(firebaseApp);
 const firestone = getFirestore(firebaseApp);
@@ -53,6 +54,7 @@ function App() {
       ) : (
         <Routess />
       )}
+      <Footer />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-import logooo from "../Pages/Multimedia/descarga1.png";
+import logo from "../Multimedia/LogoGG.png";
 import "./Navbar.css";
 import firebaseApp from "../../fb";
 import { getAuth, signOut } from "firebase/auth";
@@ -10,7 +10,7 @@ function NavBar(props) {
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <img src={logooo} height={45} id="LogoGG"></img>
+          <img src={logo} height={45} id="LogoGG"></img>
         </a>
         <button
           class="navbar-toggler"
@@ -39,37 +39,44 @@ function NavBar(props) {
               </a>
             </li>
 
-            <li class="nav-item dropdown ">
-              <a
-                class="nav-link dropdown-toggle"
-                href="/"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                {" "}
-                Perfil{" "}
-              </a>
-              <ul
-                class="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li>
-                  <a class="dropdown-item d" href="/EditProfile">
-                    {" "}
-                    Editar Perfil{" "}
-                  </a>
-                </li>
+            {props.state ? (
+              <li className="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="/"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  {props.username}
+                </a>
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <li>
+                    <a class="dropdown-item d" href="/EditProfile">
+                      {" "}
+                      Editar Perfil{" "}
+                    </a>
+                  </li>
 
-                <li>
-                  <a class="dropdown-item d" onClick={() => signOut(auth)}>
-                    {" "}
-                    Cerrar Sesion{" "}
-                  </a>
-                </li>
-              </ul>
-            </li>
+                  <li>
+                    <a class="dropdown-item d" onClick={() => signOut(auth)}>
+                      {" "}
+                      Cerrar Sesion{" "}
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            ) : (
+              <li class="nav-item">
+                <a className="nav-link" href="/">
+                  Iniciar Sesion / Registrarse
+                </a>
+              </li>
+            )}
           </ul>
           <div class="search-container" style={{ marginLeft: "20px" }}>
             <form action="/action_page.php">
@@ -85,29 +92,6 @@ function NavBar(props) {
             </form>
           </div>
         </div>
-        {props.state ? (
-          <li class="nav-item">
-            <a type="submit" href="/" class="btn btn-primary btn-sm  mr-auto">
-              Bienvenido, {props.username}
-            </a>{" "}
-          </li>
-        ) : (
-          <li class="nav-item">
-            <a type="submit" href="/" class="btn btn-primary btn-sm  mr-auto">
-              Iniciar Sesion
-            </a>
-          </li>
-        )}
-        <li class="nav-item">
-          <a
-            type="submit"
-            href="/"
-            class="btn btn-primary btn-sm  mr-auto"
-            onClick={() => signOut(auth)}
-          >
-            Cerrar Sesion
-          </a>
-        </li>
       </div>
     </nav>
   );

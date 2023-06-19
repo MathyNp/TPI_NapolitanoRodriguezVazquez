@@ -7,12 +7,14 @@ import {
 } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const auth = getAuth(firebaseApp);
 const firestone = getFirestore(firebaseApp);
 
 function Login() {
   const [isRegister, setIsRegister] = useState(false);
+  const navigation = useNavigate();
 
   async function registerUser(email, password, username) {
     const infoUser = await createUserWithEmailAndPassword(
@@ -42,61 +44,90 @@ function Login() {
     }
   }
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <div
         style={{
+          textAlign: "center",
           alignItems: "center",
           justifyContent: "center",
           display: "flex",
-          marginTop: "50px",
+          margin: "50px",
+          backgroundColor: "#212529",
+          padding: "auto",
+          paddingTop: "30px",
+          paddingBottom: "40px",
+          borderRadius: "20px",
+          width: "450px",
+          borderBottom: "5px solid coral",
         }}
       >
         <form
-          style={{ textAlign: "center", width: "350px" }}
+          style={{
+            textAlign: "center",
+            width: "350px",
+          }}
           onSubmit={submitHandler}
         >
-          <div className="mb-3">
+          <h2 style={{ color: "whitesmoke" }}>
+            {" "}
+            {isRegister ? "Formulario de registro" : "Iniciar sesion"}{" "}
+          </h2>
+          <div class="mb-3">
             {isRegister ? (
-              <input
-                type="text"
-                id="userField"
-                minLength="6"
-                maxLength="12"
-                className="form-control"
-                placeholder="UserName"
-              ></input>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  id="userField"
+                  maxLength="12"
+                  className="form-control"
+                  placeholder="UserName"
+                />
+              </div>
             ) : (
-              <></>
+              <> </>
             )}
             <input
               type="email"
-              id="emailField"
-              minLength="5"
               className="form-control"
+              id="emailField"
+              aria-describedby="emailHelp"
               placeholder="Email"
+              minLength="5"
               required
-            ></input>
+            />
           </div>
-          <div className="mb-3">
+          <div class="mb-3">
             <input
-              required
               type="password"
+              class="form-control"
               id="passwordField"
+              placeholder="Contraseña"
               minLength="6"
               maxLength="15"
-              className="form-control"
-              placeholder="Contraseña"
-            ></input>
+              required
+            />
           </div>
-          <div style={{ alignItems: "center" }}></div>
+
           <input
             type="submit"
+            class="btn btn-light"
             value={isRegister ? "Registrase" : "Inicia Sesion"}
           ></input>
+
+          <button
+            onClick={() => setIsRegister(!isRegister)}
+            className="btn btn-light"
+            style={{ marginLeft: 7 }}
+          >
+            {isRegister ? "Ya tengo una cuenta" : "Quiero Registrarme"}
+          </button>
         </form>
-        <button onClick={() => setIsRegister(!isRegister)}>
-          {isRegister ? "Ya tengo una cuenta" : "Quiero Registrarme"}
-        </button>
       </div>
     </div>
   );
