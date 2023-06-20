@@ -7,16 +7,14 @@ import {
 } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
 
 const auth = getAuth(firebaseApp);
 const firestone = getFirestore(firebaseApp);
 
 function Login() {
   const [isRegister, setIsRegister] = useState(false);
-  const navigation = useNavigate();
 
-  async function registerUser(email, password, username) {
+  async function registerUser(email, password, username, rol) {
     const infoUser = await createUserWithEmailAndPassword(
       auth,
       email,
@@ -26,7 +24,7 @@ function Login() {
     });
     console.log(infoUser.user.uid);
     const docuRef = doc(firestone, `users/${infoUser.user.uid}`);
-    setDoc(docuRef, { correo: email, rol: "User", username: username });
+    setDoc(docuRef, { correo: email, rol: rol, username: username });
   }
 
   async function submitHandler(e) {
@@ -38,7 +36,8 @@ function Login() {
     console.log("submit", email, password);
     if (isRegister) {
       const username = e.target.elements.userField.value;
-      registerUser(email, password, username);
+      const rol = "User";
+      registerUser(email, password, username, rol);
     } else {
       signInWithEmailAndPassword(auth, email, password);
     }
@@ -78,9 +77,9 @@ function Login() {
             {" "}
             {isRegister ? "Formulario de registro" : "Iniciar sesion"}{" "}
           </h2>
-          <div class="mb-3">
+          <div className="mb-3">
             {isRegister ? (
-              <div class="mb-3">
+              <div className="mb-3">
                 <input
                   type="text"
                   id="userField"
@@ -102,10 +101,10 @@ function Login() {
               required
             />
           </div>
-          <div class="mb-3">
+          <div className="mb-3">
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="passwordField"
               placeholder="Contraseña"
               minLength="6"
@@ -116,7 +115,7 @@ function Login() {
 
           <input
             type="submit"
-            class="btn btn-light"
+            className="btn btn-light"
             value={isRegister ? "Registrase" : "Inicia Sesion"}
           ></input>
 
