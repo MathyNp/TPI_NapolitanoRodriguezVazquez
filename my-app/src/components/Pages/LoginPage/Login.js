@@ -16,7 +16,7 @@ function Login() {
   const [isRegister, setIsRegister] = useState(false);
   const navigation = useNavigate();
 
-  async function registerUser(email, password, username, rol) {
+  async function registerUser(email, password, username) {
     const infoUser = await createUserWithEmailAndPassword(
       auth,
       email,
@@ -29,12 +29,11 @@ function Login() {
     setDoc(docuRef, { correo: email, rol: "User", username: username });
   }
 
-  function submitHandler(e) {
+  async function submitHandler(e) {
     e.preventDefault();
 
     const email = e.target.elements.emailField.value;
     const password = e.target.elements.passwordField.value;
-    // const username = e.target.elements.userField.value;
 
     console.log("submit", email, password);
     if (isRegister) {
