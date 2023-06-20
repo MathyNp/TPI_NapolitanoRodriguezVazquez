@@ -24,71 +24,101 @@ const EditProfile = (props) => {
   };
   return (
     <div>
-      {props.state ? (
-        <>
-          <h1>Modificar Perfil.</h1> <h2>¡Hola {props.username}!</h2>
+      <div>
+        {props.rol === "Admin" ? (
           <div>
+            <h1>Admin view</h1>
+          </div>
+        ) : (
+          <></>
+        )}
+        {props.rol === "Company" ? (
+          <div>
+            <h1>Company View</h1>
             <p>¿Que desea modificar?</p>
-
+            <h2>{props.rol}</h2>
             <button type="submit" onClick={handleusernameNew}>
               Nombre de Usuario
             </button>
             <button onClick={handleEmailNew}>Email registrado</button>
             <button onClick={handlepasswordNew}>Contraseña</button>
-          </div>{" "}
-        </>
-      ) : (
-        <p>Registrese para hacer cambios en su perfil.</p>
-      )}
-      {username ? (
-        <>
-          <div>
-            <form>
-              <label>Ingrese su nuevo nombre de Usuario.</label>
-              <input type="text" minLength="6" maxLength="12"></input>
-              <button>Cambiar nombre de usuario</button>
-            </form>
           </div>
-        </>
-      ) : (
-        <></>
-      )}
-      {email ? (
-        <>
+        ) : (
+          <></>
+        )}
+
+        {props.state ? (
           <div>
-            <form>
-              <label>Ingrese su nuevo email</label>
-              <input
-                type="text"
-                minLength="6"
-                maxLength="12"
-                placeholder="Nuevo email"
-              ></input>
-              <button>Cambiar email</button>
-            </form>
+            {props.rol === "User" ? (
+              <>
+                <h1>Modificar Perfil.</h1> <h2>¡Hola {props.username}!</h2>
+                <div>
+                  <p>¿Que desea modificar?</p>
+                  <h2>{props.rol}</h2>
+                  <button type="submit" onClick={handleusernameNew}>
+                    Nombre de Usuario
+                  </button>
+                  <button onClick={handleEmailNew}>Email registrado</button>
+                  <button onClick={handlepasswordNew}>Contraseña</button>
+                </div>{" "}
+              </>
+            ) : (
+              <></>
+            )}
+            {username ? (
+              <>
+                <div>
+                  <form>
+                    <label>Ingrese su nuevo nombre de Usuario.</label>
+                    <input type="text" minLength="6" maxLength="12"></input>
+                    <button>Cambiar nombre de usuario</button>
+                  </form>
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
+            {email ? (
+              <>
+                <div>
+                  <form>
+                    <label>Ingrese su nuevo email</label>
+                    <input
+                      type="text"
+                      minLength="6"
+                      maxLength="12"
+                      placeholder="Nuevo email"
+                    ></input>
+                    <button>Cambiar email</button>
+                  </form>
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
+            {password ? (
+              <>
+                <div>
+                  <form>
+                    <label>Ingrese su nueva contraseña.</label>
+                    <input
+                      type="text"
+                      minLength="6"
+                      maxLength="12"
+                      placeholder="Nueva contraseña"
+                    ></input>
+                    <button>Cambiar contraseña</button>
+                  </form>
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
-        </>
-      ) : (
-        <></>
-      )}
-      {password ? (
-        <>
-          <div>
-            <form>
-              <label>Ingrese su nueva contraseña.</label>
-              <input
-                type="text"
-                minLength="6"
-                maxLength="12"
-                placeholder="Nueva contraseña"
-              ></input>
-              <button>Cambiar contraseña</button>
-            </form>
-          </div>
-        </>
-      ) : (
-        <></>
-      )}
+        ) : (
+          <>Registrese Para hacer Cambios en su perfil</>
+        )}
+      </div>
     </div>
   );
 };
