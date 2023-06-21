@@ -58,18 +58,10 @@ const GamesGalery = (props) => {
                   style={{
                     fontSize: "12px",
                     marginLeft: "4px",
+                    marginBottom: "2px",
                     color: "coral",
                   }}
                 />{" "}
-                / 5{" "}
-                <FontAwesomeIcon
-                  icon={faStar}
-                  style={{
-                    fontSize: "12px",
-                    marginLeft: "4px",
-                    color: "coral",
-                  }}
-                />
               </a>
             </p>
           </div>

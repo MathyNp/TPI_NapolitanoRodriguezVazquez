@@ -1,17 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 
 import firebaseApp from "../../fb";
 import { getAuth, signOut } from "firebase/auth";
-
 import logo from "../Multimedia/LogoGG.png";
+
+import Fuse from "fuse.js";
+import games from "../../games.json";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGamepad } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+
 const auth = getAuth(firebaseApp);
+
 function NavBar(props) {
+  const [query, setQuery] = useState("");
+  const [showResults, setShowResults] = useState(false);
+
+  const fuse = new Fuse(games, {
+    keys: ["name", "genre", "developer", "id"],
+  });
+  function handleOnSearch({ currentTarget = {} }) {
+    const { value } = currentTarget;
+    setQuery(value);
+    setShowResults(value.length > 0);
+  }
+
+  const results = fuse.search(query);
+  const GamesResults = results.map((results) => results.item);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          <img src={logo} height={45} id="LogoGG"></img>
+          <FontAwesomeIcon
+            icon={faGamepad}
+            shake
+            size="xl"
+            style={{ color: "#ff7f50" }}
+          />
         </a>
         <button
           className="navbar-toggler"
@@ -58,10 +86,19 @@ function NavBar(props) {
                 <ul
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
+                  style={{ backgroundColor: "#212529" }}
                 >
                   <li>
-                    <a className="dropdown-item d" href="/EditProfile">
+                    <a
+                      className="dropdown-item d"
+                      href="/EditProfile"
+                      style={{ color: "whitesmoke" }}
+                    >
                       {" "}
+                      <FontAwesomeIcon
+                        icon={faPenToSquare}
+                        style={{ marginRight: "3px", color: "coral" }}
+                      />
                       Editar Perfil{" "}
                     </a>
                   </li>
@@ -70,8 +107,13 @@ function NavBar(props) {
                     <a
                       className="dropdown-item d"
                       onClick={() => signOut(auth)}
+                      style={{ color: "whitesmoke" }}
                     >
                       {" "}
+                      <FontAwesomeIcon
+                        icon={faRightFromBracket}
+                        style={{ marginRight: "3px", color: "coral" }}
+                      />
                       Cerrar Sesion{" "}
                     </a>
                   </li>
@@ -85,19 +127,52 @@ function NavBar(props) {
               </li>
             )}
           </ul>
+
+          {/* Barra de busqueda  */}
+
           <div className="search-container" style={{ marginLeft: "20px" }}>
-            <form action="/action_page.php">
-              <input
-                type="text"
-                placeholder="Buscar "
-                name="search"
-                style={{
-                  borderRadius: "30px",
-                  padding: "5px",
-                }}
-              ></input>
-            </form>
+            <input
+              type="text"
+              placeholder="Buscar"
+              name="search"
+              value={query}
+              onChange={handleOnSearch}
+              style={{
+                borderRadius: "30px",
+                padding: "5px",
+              }}
+            />
           </div>
+
+          {/* Resultados de busqueda */}
+          {showResults && (
+            <div className="search-results">
+              {GamesResults.map((game) => (
+                <div key={game.id} style={{}}>
+                  <img
+                    src={game.img}
+                    style={{
+                      width: "70px",
+                      height: "70px",
+                      margin: "3px",
+                      borderRadius: "100px",
+                    }}
+                  ></img>
+                  <a
+                    href={`/${game.name}`}
+                    style={{
+                      textDecoration: "none",
+                      color: "whitesmoke",
+                      marginLeft: "10px",
+                      fontSize: "25px",
+                    }}
+                  >
+                    {game.name}
+                  </a>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </nav>
