@@ -16,7 +16,7 @@ const firestone = getFirestore(firebaseApp);
 
 function App() {
   const [user, setUser] = useState(null);
-  //Funciones para obtener los datos del usuario.
+
   async function getUsername(uid) {
     const docuRef = doc(firestone, `users/${uid}`);
     const docuEncrypted = await getDoc(docuRef);
@@ -30,8 +30,18 @@ function App() {
     return inff;
   }
   // // FUNCION DONDE SE GUARDAN LOS DATOS DEL USUARIO CREADO.
-
-  function userFirebaseData(userFirebase) {
+  // function userFirebaseData(userFirebase) {
+  //   getUsername(userFirebase.uid).then((username) => {
+  //     const userData = {
+  //       uid: userFirebase.uid,
+  //       email: userFirebase.email,
+  //       username: username,
+  //     };
+  //     setUser(userData);
+  //     console.log("userdata", userData);
+  //   });
+  // }
+  function userFirebaseRol(userFirebase) {
     getRol(userFirebase.uid).then((rol) => {
       getUsername(userFirebase.uid).then((username) => {
         const userData = {
@@ -48,7 +58,8 @@ function App() {
   onAuthStateChanged(auth, (userFirebase) => {
     if (userFirebase) {
       if (!user) {
-        userFirebaseData(userFirebase);
+        // userFirebaseData(userFirebase);
+        userFirebaseRol(userFirebase);
       }
     } else {
       setUser(null);
