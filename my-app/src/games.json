@@ -17,7 +17,7 @@
     "platform": ["PC", "PlayStation 4", "Xbox One", "Nintendo Switch"],
     "developer": "CD Projekt RED",
     "description": "The Witcher 3: Wild Hunt es un aclamado videojuego de rol de acción desarrollado por CD Projekt Red y lanzado en 2015. Basado en la exitosa serie de libros del escritor polaco Andrzej Sapkowski, el juego te sumerge en un vasto mundo abierto de fantasía medieval llamado el Continente.",
-    "score": 0
+    "score": 5
   },
   {
     "id": 2,
@@ -62,7 +62,7 @@
     "graphicsEngine": "Unreal Engine 4",
     "developer": "Epic Games ",
     "description": " Fortnite es un popular videojuego de batalla real desarrollado por Epic Games. Los jugadores luchan en una isla hasta que solo queda un ganador. Combina elementos de construcción, acción y estrategia. Su estilo artístico único, eventos en vivo y actualizaciones constantes lo han convertido en un juego muy popular y emocionante.",
-    "score": 0
+    "score": 4
   },
   {
     "id": 5,
@@ -80,7 +80,7 @@
     "graphicsEngine": "Java Edition: LWJGL, Bedrock Edition: RenderDragon",
     "developer": "Mojang Studios",
     "description": "Los jugadores exploran un vasto paisaje, recolectan recursos y construyen estructuras utilizando bloques. Pueden enfrentarse a enemigos, criar animales y cultivar cultivos para sobrevivir. Con su estilo visual distintivo y una amplia comunidad de jugadores, Minecraft ofrece una experiencia creativa sin límites.",
-    "score": 0
+    "score": 5
   },
   {
     "id": 6,

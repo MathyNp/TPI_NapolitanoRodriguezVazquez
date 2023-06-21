@@ -13,7 +13,7 @@ function GamesReviews({
 }) {
   return (
     <div>
-      <h2>Detalles del elemento: {img}</h2>
+      <img src={img}></img>
       <h2>Detalles del elemento: {name}</h2>
       <h2>Detalles del elemento: {genre}</h2>
       <h2>Detalles del elemento: {platform}</h2>

@@ -66,7 +66,7 @@ const GamesGalery = (props) => {
             </p>
           </div>
           <a
-            href="#"
+            href={`/${props.name}`}
             className="btn btn-dark"
             id="btn"
             style={{
