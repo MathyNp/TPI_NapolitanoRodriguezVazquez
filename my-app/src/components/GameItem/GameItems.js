@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import GamesGalery from "../GameGallery/Games";
+import GameGalery from "../GameGallery/Games";
 
 const Games = () => {
   const [games, setGames] = useState([
@@ -312,7 +312,7 @@ const Games = () => {
     >
       {games.map((games) => {
         return (
-          <GamesGalery
+          <GameGalery
             name={games.name}
             img={games.img}
             genre={games.genre}

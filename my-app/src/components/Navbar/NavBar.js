@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 
 import firebaseApp from "../../fb";
 import { getAuth, signOut } from "firebase/auth";
-
 import logo from "../Multimedia/LogoGG.png";
+
+import Fuse from "fuse.js";
+import Games from "../GameItem/GameItems";
+
 const auth = getAuth(firebaseApp);
+
 function NavBar(props) {
+  const [query, setQuery] = useState("");
+
+  const fuse = new Fuse(Games, {
+    keys: ["name"],
+    includeScore: true,
+  });
+  function handleOnSearch({ currentTarget = {} }) {
+    const { value } = currentTarget;
+    setQuery(value);
+  }
+
+  const results = fuse.search(query);
+  const GamesResults = results.map((results) => results.item);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
       <div className="container-fluid">
@@ -85,18 +103,28 @@ function NavBar(props) {
               </li>
             )}
           </ul>
+
+          {/* Barra de busqueda  */}
+
           <div className="search-container" style={{ marginLeft: "20px" }}>
-            <form action="/action_page.php">
-              <input
-                type="text"
-                placeholder="Buscar "
-                name="search"
-                style={{
-                  borderRadius: "30px",
-                  padding: "5px",
-                }}
-              ></input>
-            </form>
+            <input
+              type="text"
+              placeholder="Buscar"
+              name="search"
+              value={query}
+              onChange={handleOnSearch}
+              style={{
+                borderRadius: "30px",
+                padding: "5px",
+              }}
+            />
+          </div>
+
+          {/* Resultados de busqueda */}
+          <div className="search-results">
+            {GamesResults.map((game) => (
+              <div key={game.id}>{game.name}</div>
+            ))}
           </div>
         </div>
       </div>
