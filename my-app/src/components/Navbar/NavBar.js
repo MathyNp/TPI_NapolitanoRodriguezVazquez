@@ -3,7 +3,6 @@ import "./Navbar.css";
 
 import firebaseApp from "../../fb";
 import { getAuth, signOut } from "firebase/auth";
-import logo from "../Multimedia/LogoGG.png";
 
 import Fuse from "fuse.js";
 import games from "../../games.json";
@@ -11,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGamepad } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const auth = getAuth(firebaseApp);
 
@@ -19,7 +20,7 @@ function NavBar(props) {
   const [showResults, setShowResults] = useState(false);
 
   const fuse = new Fuse(games, {
-    keys: ["name", "genre", "developer", "id"],
+    keys: ["name", "genre", "developer", "platform"],
   });
   function handleOnSearch({ currentTarget = {} }) {
     const { value } = currentTarget;
@@ -31,7 +32,10 @@ function NavBar(props) {
   const GamesResults = results.map((results) => results.item);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
+    <nav
+      className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top "
+      style={{ height: "80px" }}
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <FontAwesomeIcon
@@ -126,14 +130,34 @@ function NavBar(props) {
                 </a>
               </li>
             )}
+
+            {props.rol === "Company" ? (
+              <li className="nav-item">
+                <a href="./" className="nav-link" style={{ marginLeft: "1px" }}>
+                  <FontAwesomeIcon
+                    icon={faPlus}
+                    beat
+                    size="s"
+                    style={{ color: "#ff7f50", marginRight: "7px" }}
+                  />
+                  Agregar Juego{" "}
+                </a>
+              </li>
+            ) : (
+              <> </>
+            )}
           </ul>
 
           {/* Barra de busqueda  */}
 
           <div className="search-container" style={{ marginLeft: "20px" }}>
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              style={{ color: "#ff7f50", marginRight: "7px" }}
+            />
+
             <input
               type="text"
-              placeholder="Buscar"
               name="search"
               value={query}
               onChange={handleOnSearch}
@@ -146,7 +170,10 @@ function NavBar(props) {
 
           {/* Resultados de busqueda */}
           {showResults && (
-            <div className="search-results">
+            <div
+              className="search-results"
+              style={{ overflowY: "auto", maxHeight: "300px" }}
+            >
               {GamesResults.map((game) => (
                 <div key={game.id} style={{}}>
                   <img
@@ -156,6 +183,7 @@ function NavBar(props) {
                       height: "70px",
                       margin: "3px",
                       borderRadius: "100px",
+                      border: "2px solid coral",
                     }}
                   ></img>
                   <a

@@ -99,6 +99,7 @@ function Login() {
               placeholder="Email"
               minLength="5"
               required
+              style={{ paddingLeft: "2em" }}
             />
           </div>
           <div className="mb-3">
@@ -116,7 +117,7 @@ function Login() {
           <input
             type="submit"
             className="btn btn-light"
-            value={isRegister ? "Registrase" : "Inicia Sesion"}
+            value={isRegister ? "Registrarse" : "Inicia Sesion"}
           ></input>
 
           <button

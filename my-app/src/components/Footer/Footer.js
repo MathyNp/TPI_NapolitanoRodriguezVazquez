@@ -13,8 +13,7 @@ const Footer = () => {
           href="https://github.com/MathyNp/TPI_NapolitanoRodriguezVazquez"
           target="_blank"
         >
-          {" "}
-          Github
+          Git Hub
         </a>
       </footer>
     </div>

@@ -21,8 +21,7 @@
   background-color: whitesmoke;
   border-radius: 10px;
   align-items: center;
-
-  border-bottom: coral solid 3px;
+  width: 500px;
 }
 
 .search-container input {

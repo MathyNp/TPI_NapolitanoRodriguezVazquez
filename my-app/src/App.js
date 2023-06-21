@@ -11,6 +11,8 @@ import NavBar from "./components/Navbar/NavBar";
 import Routess from "../src/components/Routess";
 import Footer from "../src/components/Footer/Footer";
 
+import "../src/Scrollbar.css";
+
 const auth = getAuth(firebaseApp);
 const firestone = getFirestore(firebaseApp);
 
@@ -67,7 +69,11 @@ function App() {
   });
   return (
     <div className="App">
-      {user ? <NavBar state={user} username={user.username} /> : <NavBar />}
+      {user ? (
+        <NavBar state={user} username={user.username} rol={user.rol} />
+      ) : (
+        <NavBar />
+      )}
       {user ? (
         <Routess rol={user.rol} state={user} username={user.username} />
       ) : (
