@@ -23,8 +23,9 @@ function Routess(props) {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<Login />} />
-          <Route exact path="/Home" element={<Home />} />
+          {props.state ? <></> : <Route exact path="/" element={<Login />} />}
+
+          <Route exact path="/home" element={<Home />} />
           <Route exact path="*" element={<Error404 />} />
           <Route
             path="/EditProfile"
