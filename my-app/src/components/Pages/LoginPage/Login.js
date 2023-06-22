@@ -7,12 +7,14 @@ import {
 } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const auth = getAuth(firebaseApp);
 const firestone = getFirestore(firebaseApp);
 
 function Login() {
   const [isRegister, setIsRegister] = useState(false);
+  const navigation = useNavigate("");
 
   async function registerUser(email, password, username, rol) {
     const infoUser = await createUserWithEmailAndPassword(
@@ -37,9 +39,19 @@ function Login() {
     if (isRegister) {
       const username = e.target.elements.userField.value;
       const rol = "User";
-      registerUser(email, password, username, rol);
+      registerUser(email, password, username, rol)
+        .then(() => navigation("/home"))
+        .catch((error) => {
+          alert("Hola");
+          console.log(error);
+        });
     } else {
-      signInWithEmailAndPassword(auth, email, password);
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => navigation("/home"))
+        .catch((error) => {
+          alert("Hola");
+          console.log(error);
+        });
     }
   }
   return (
@@ -83,7 +95,7 @@ function Login() {
                 <input
                   type="text"
                   id="userField"
-                  maxLength="12"
+                  maxLength="17"
                   className="form-control"
                   placeholder="UserName"
                 />

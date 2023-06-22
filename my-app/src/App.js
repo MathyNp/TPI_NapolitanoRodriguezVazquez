@@ -10,12 +10,13 @@ import NavBar from "./components/Navbar/NavBar";
 
 import Routess from "../src/components/Routess";
 import Footer from "../src/components/Footer/Footer";
-
+import Loader from "./components/Loader/Loader";
 const auth = getAuth(firebaseApp);
 const firestone = getFirestore(firebaseApp);
 
 function App() {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   async function getUsername(uid) {
     const docuRef = doc(firestone, `users/${uid}`);
@@ -42,6 +43,7 @@ function App() {
   //   });
   // }
   function userFirebaseRol(userFirebase) {
+    setLoading(true);
     getRol(userFirebase.uid).then((rol) => {
       getUsername(userFirebase.uid).then((username) => {
         const userData = {
@@ -53,12 +55,12 @@ function App() {
         setUser(userData);
         console.log("userdata", userData);
       });
+      setLoading(false);
     });
   }
   onAuthStateChanged(auth, (userFirebase) => {
     if (userFirebase) {
       if (!user) {
-        // userFirebaseData(userFirebase);
         userFirebaseRol(userFirebase);
       }
     } else {
@@ -67,7 +69,17 @@ function App() {
   });
   return (
     <div className="App">
-      {user ? <NavBar state={user} username={user.username} /> : <NavBar />}
+      {user ? (
+        <NavBar
+          state={user}
+          username={user.username}
+          rol={user.rol}
+          loading1={loading}
+        />
+      ) : (
+        <NavBar loading1={loading} />
+      )}
+      {/* {loading && <Loader />} */}
       {user ? (
         <Routess rol={user.rol} state={user} username={user.username} />
       ) : (
