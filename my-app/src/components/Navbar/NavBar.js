@@ -90,11 +90,11 @@ function NavBar(props) {
                 <ul
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
-                  style={{ backgroundColor: "#212529" }}
+                  style={{ backgroundColor: "#212529", border: "none" }}
                 >
                   <li>
                     <a
-                      className="dropdown-item d"
+                      className="dropdown-item"
                       href="/EditProfile"
                       style={{ color: "whitesmoke" }}
                     >
