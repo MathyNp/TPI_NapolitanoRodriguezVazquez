@@ -21,7 +21,6 @@ function GamesReviews({
     <div
       className="gameReviewMain"
       style={{
-        backgroundImage: `url(${img})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         height: "100vh",

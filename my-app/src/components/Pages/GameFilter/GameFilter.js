@@ -12,6 +12,7 @@ const GameFilter = ({
   filterPlatform,
   filterDeveloper,
   onFilterDeveloperChange,
+  onReset,
 }) => {
   const [genrestate, setGenreState] = useState(true);
   const [developerstate, setDeveloperState] = useState(true);
@@ -44,9 +45,7 @@ const GameFilter = ({
     setPlatformState(true);
     setDeveloperState(true);
     setGameState(true);
-    onFilterDeveloperChange(null);
-    onFilterPlatformChange(null);
-    onFilterGenreChange(null);
+    onReset();
   }
   return (
     <>

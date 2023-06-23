@@ -5,10 +5,10 @@ import GamesGalery from "../../GameGallery/Games";
 import GameFilter from "../GameFilter/GameFilter";
 import Game from "../../GameItem/GameItems";
 
-const GamesPage = ({ filterGenre, filterPlatform, filterDeveloper }) => {
-  const [filtergenre, setFilterGenre] = useState("");
-  const [filterplatform, setFilterPlatform] = useState("");
-  const [filterdeveloper, setFilterDeveloper] = useState("");
+const GamesPage = () => {
+  const [filterGenre, setFilterGenre] = useState("");
+  const [filterPlatform, setFilterPlatform] = useState("");
+  const [filterDeveloper, setFilterDeveloper] = useState("");
   const [game1, setGame1] = useState(true);
 
   const filterGenreChanged = (genre) => {
@@ -23,8 +23,13 @@ const GamesPage = ({ filterGenre, filterPlatform, filterDeveloper }) => {
     setFilterDeveloper(developer);
     setGame1(false);
   };
+  const onReset = () => {
+    setFilterGenre("");
+    setFilterPlatform("");
+    setFilterDeveloper("");
+  };
   const GamesGenreMapped = data
-    .filter((game) => game.genre === filtergenre)
+    .filter((game) => game.genre === filterGenre)
     .map((games, index) => (
       <GamesGalery
         key={index}
@@ -37,7 +42,7 @@ const GamesPage = ({ filterGenre, filterPlatform, filterDeveloper }) => {
       />
     ));
   const GamesPlatformMapped = data
-    .filter((game) => game.platform.includes(filterplatform))
+    .filter((game) => game.platform.includes(filterPlatform))
     .slice(0, 10)
     .map((game, index) => (
       <GamesGalery
@@ -52,7 +57,7 @@ const GamesPage = ({ filterGenre, filterPlatform, filterDeveloper }) => {
       />
     ));
   const GamesDeveloperMapped = data
-    .filter((game) => game.developer === filterdeveloper)
+    .filter((game) => game.developer === filterDeveloper)
 
     .map((games, index) => (
       <GamesGalery
@@ -75,6 +80,7 @@ const GamesPage = ({ filterGenre, filterPlatform, filterDeveloper }) => {
       {/* <button onClick={ResetFilter}> Reiniciar filtro</button> */}
       <GameFilter
         filterGenre={filterGenre}
+        onReset={onReset}
         onFilterGenreChange={filterGenreChanged}
         filterPlatform={filterPlatform}
         onFilterPlatformChange={filterPlatformChanged}
