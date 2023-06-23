@@ -60,7 +60,7 @@
       "Android"
     ],
     "graphicsEngine": "Unreal Engine 4",
-    "developer": "Epic Games ",
+    "developer": "Epic Games",
     "description": " Fortnite es un popular videojuego de batalla real desarrollado por Epic Games. Los jugadores luchan en una isla hasta que solo queda un ganador. Combina elementos de construcción, acción y estrategia. Su estilo artístico único, eventos en vivo y actualizaciones constantes lo han convertido en un juego muy popular y emocionante.",
     "score": 4
   },
@@ -91,7 +91,7 @@
     "graphicsEngine": "Custom (Derived from Source engine)",
     "description": "Overwatch es un popular videojuego de disparos en primera persona (FPS) desarrollado y publicado por Blizzard Entertainment. Fue lanzado en 2016 y se ha convertido en uno de los juegos más populares en su género. En Overwatch, los jugadores forman equipos de seis personas y asumen el papel de héroes con habilidades únicas en un entorno de combate en equipo. El juego presenta una amplia variedad de héroes, cada uno con su propio estilo de juego, habilidades especiales y roles en el equipo, como tanques, DPS (daño por segundo) y sanadores.",
     "score": 0,
-    "developer": " Blizzard Entertainment"
+    "developer": "Blizzard Entertainment"
   },
   {
     "id": 7,

@@ -12,9 +12,10 @@ const Games = () => {
         boxSizing: "border-box",
       }}
     >
-      {data.map((games) => {
+      {data.map((games, index) => {
         return (
           <GamesGalery
+            key={index}
             name={games.name}
             img={games.img}
             genre={games.genre}

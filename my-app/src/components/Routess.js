@@ -38,8 +38,9 @@ function Routess(props) {
             }
           />
           <Route exact path="/Games" element={<GamesPage />} />
-          {data.map((games) => (
+          {data.map((games, key) => (
             <Route
+              key={games.id}
               id={games.id}
               path={`${games.name}`}
               element={

@@ -100,6 +100,7 @@ function Login() {
                   maxLength="17"
                   className="form-control"
                   placeholder="UserName"
+                  required
                 />
               </div>
             ) : (
