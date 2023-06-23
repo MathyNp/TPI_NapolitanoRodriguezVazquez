@@ -11,6 +11,9 @@ import { faGamepad } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { faMoon } from "@fortawesome/free-solid-svg-icons";
 
 import Loader from "../Loader/Loader";
 
@@ -22,6 +25,7 @@ function NavBar(props) {
 
   const fuse = new Fuse(games, {
     keys: ["name", "genre", "developer", "platform"],
+    threshold: 0.3,
   });
   function handleOnSearch({ currentTarget = {} }) {
     const { value } = currentTarget;
@@ -84,6 +88,10 @@ function NavBar(props) {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
+                    <FontAwesomeIcon
+                      icon={faUser}
+                      style={{ color: "#ff7f50", marginRight: "8px" }}
+                    />
                     {props.username}
                   </a>
                   <ul
@@ -133,8 +141,6 @@ function NavBar(props) {
 
             {/* Barra de busqueda  */}
 
-            {/* Barra de busqueda  */}
-
             <div className="search-container" style={{ marginLeft: "20px" }}>
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
@@ -157,15 +163,13 @@ function NavBar(props) {
             {showResults && (
               <div className="search-results">
                 {GamesResults.map((game) => (
-                  <div key={game.id} style={{}}>
+                  <div key={game.id} style={{ maxHeight: "90vh" }}>
                     <img
                       src={game.img}
                       style={{
-                        width: "70px",
+                        width: "50px",
                         height: "70px",
                         margin: "3px",
-                        borderRadius: "100px",
-                        border: "coral solid 2px",
                       }}
                     ></img>
                     <a
@@ -174,7 +178,7 @@ function NavBar(props) {
                         textDecoration: "none",
                         color: "whitesmoke",
                         marginLeft: "10px",
-                        fontSize: "25px",
+                        fontSize: "20px",
                       }}
                     >
                       {game.name}
@@ -183,6 +187,28 @@ function NavBar(props) {
                 ))}
               </div>
             )}
+          </div>
+          <div
+            style={{
+              margin: "10px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <FontAwesomeIcon
+              icon={faSun}
+              size="xl"
+              style={{ color: "whitesmoke", marginRight: "10px" }}
+            />
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+            <FontAwesomeIcon
+              icon={faMoon}
+              size="xl"
+              style={{ color: "whitesmoke", marginLeft: "10px" }}
+            />
           </div>
         </div>
       ) : (

@@ -31,7 +31,7 @@
       "PlayStation 3",
       "Xbox 360"
     ],
-    "developer": "Rockstar North",
+    "developer": "Rockstar Games",
     "description": "Grand Theft Auto V es un juego de acción y aventura en Los Santos. Sigue a Michael, Franklin y Trevor, cada uno con su propia historia. Los jugadores realizan atracos y desafíos en un mundo abierto. Exploran la ciudad, participan en actividades y disfrutan del multijugador. La narrativa es rica y los personajes inolvidables.",
     "score": 0
   },
@@ -206,7 +206,7 @@
     "id": 14,
     "name": "Horizon Zero Dawn",
     "developer": "Guerrilla Games",
-    "genre": "Open-world RPG",
+    "genre": "RPG",
     "img": "https://1.bp.blogspot.com/-1nzqgs8_vaE/Xy4UIiNcodI/AAAAAAAAThg/gwz6tELY9t0g8ENjx8WQH-6bCLc9KFYwQCLcBGAsYHQ/s1600/Horizon%2BZero%2BDawn%2BPC%2BCover%2BCaratula-www.juegosparawindows.com.jpg",
     "platform": ["PlayStation 4", "PlayStation 5", "PC"],
     "graphicsEngine": "Decima Engine",
@@ -239,7 +239,7 @@
     "id": 17,
     "name": "Animal Crossing: New Horizons",
     "developer": "Nintendo EPD",
-    "genre": "Life simulation",
+    "genre": "Lifesimulation",
     "img": "https://d.newsweek.com/en/full/1574934/animal-crossing-new-horizons-logo-box-art.jpg",
     "platform": ["Nintendo Switch"],
     "graphicsEngine": "Proprietary",

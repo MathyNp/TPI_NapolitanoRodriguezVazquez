@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import data from "../../../games.json";
-// import "../GamesPages/GamesPage.css";
+import "../GamesPages/GamesPage.css";
 import GamesGalery from "../../GameGallery/Games";
 import GameFilter from "../GameFilter/GameFilter";
 import Game from "../../GameItem/GameItems";
+
 const GamesPage = ({ filterGenre, filterPlatform, filterDeveloper }) => {
   const [filtergenre, setFilterGenre] = useState("");
   const [filterplatform, setFilterPlatform] = useState("");
@@ -70,7 +71,7 @@ const GamesPage = ({ filterGenre, filterPlatform, filterDeveloper }) => {
   return (
     <>
       {/* {game1 ? <Game /> : <></>} */}
-      <h1>FILTROS</h1>
+
       {/* <button onClick={ResetFilter}> Reiniciar filtro</button> */}
       <GameFilter
         filterGenre={filterGenre}
@@ -80,10 +81,25 @@ const GamesPage = ({ filterGenre, filterPlatform, filterDeveloper }) => {
         filterDeveloper={filterDeveloper}
         onFilterDeveloperChange={filterDeveloperChanged}
       />
-      <div className="books">
-        {GamesGenreMapped.length === 0 ? <></> : GamesGenreMapped}
-        {GamesPlatformMapped.length === 0 ? <></> : GamesPlatformMapped}
-        {GamesDeveloperMapped.length === 0 ? <></> : GamesDeveloperMapped}
+
+      <div className="games-filter-buttons">
+        {GamesGenreMapped.length > 0 && (
+          <div className="gamesFilterMain">
+            <div className="gamesFilterContainer">{GamesGenreMapped}</div>
+          </div>
+        )}
+
+        {GamesPlatformMapped.length > 0 && (
+          <div className="gamesFilterMain">
+            <div className="gamesFilterContainer">{GamesPlatformMapped}</div>
+          </div>
+        )}
+
+        {GamesDeveloperMapped.length > 0 && (
+          <div className="gamesFilterMain">
+            <div className="gamesFilterContainer">{GamesDeveloperMapped}</div>
+          </div>
+        )}
       </div>
     </>
   );
