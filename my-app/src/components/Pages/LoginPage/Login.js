@@ -14,7 +14,7 @@ const firestone = getFirestore(firebaseApp);
 
 function Login() {
   const [isRegister, setIsRegister] = useState(false);
-  const navigation = useNavigate();
+  const navigation = useNavigate("");
 
   async function registerUser(email, password, username, rol) {
     const infoUser = await createUserWithEmailAndPassword(
@@ -26,26 +26,44 @@ function Login() {
     });
     console.log(infoUser.user.uid);
     const docuRef = doc(firestone, `users/${infoUser.user.uid}`);
-    setDoc(docuRef, { correo: email, rol: "User", username: username });
+    setDoc(docuRef, { correo: email, rol: rol, username: username });
   }
 
-  function submitHandler(e) {
+  async function submitHandler(e) {
     e.preventDefault();
 
     const email = e.target.elements.emailField.value;
     const password = e.target.elements.passwordField.value;
-    // const username = e.target.elements.userField.value;
 
     console.log("submit", email, password);
     if (isRegister) {
       const username = e.target.elements.userField.value;
-      registerUser(email, password, username);
+      const rol = "User";
+      registerUser(email, password, username, rol)
+        .then(() => navigation("/home"))
+        .catch((error) => {
+          alert("No se pudo registrar correctamente. Intentelo nuevamente");
+          console.log(error);
+        });
     } else {
-      signInWithEmailAndPassword(auth, email, password);
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => navigation("/home"))
+        .catch((error) => {
+          alert(
+            "No se pudo iniciar sesion correctamente. Email o contraseña incorrectos"
+          );
+          console.log(error);
+        });
     }
   }
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <div
         style={{
           textAlign: "center",
@@ -54,24 +72,32 @@ function Login() {
           display: "flex",
           margin: "50px",
           backgroundColor: "#212529",
-          padding: "50px",
-          borderRadius: "40px",
+          padding: "auto",
+          paddingTop: "30px",
+          paddingBottom: "40px",
+          borderRadius: "20px",
+          width: "450px",
+          borderBottom: "5px solid coral",
         }}
       >
         <form
           style={{
             textAlign: "center",
-            width: "400px",
+            width: "350px",
           }}
           onSubmit={submitHandler}
         >
-          <div class="mb-3">
+          <h2 style={{ color: "whitesmoke" }}>
+            {" "}
+            {isRegister ? "Formulario de registro" : "Iniciar sesion"}{" "}
+          </h2>
+          <div className="mb-3">
             {isRegister ? (
-              <div class="mb-3">
+              <div className="mb-3">
                 <input
                   type="text"
                   id="userField"
-                  maxLength="12"
+                  maxLength="17"
                   className="form-control"
                   placeholder="UserName"
                 />
@@ -89,10 +115,10 @@ function Login() {
               required
             />
           </div>
-          <div class="mb-3">
+          <div className="mb-3">
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="passwordField"
               placeholder="Contraseña"
               minLength="6"
@@ -103,14 +129,22 @@ function Login() {
 
           <input
             type="submit"
-            class="btn btn-primary"
+            className="btn btn-light"
             value={isRegister ? "Registrase" : "Inicia Sesion"}
           ></input>
+
+          <button
+            onClick={() => setIsRegister(!isRegister)}
+            className="btn btn-light"
+            style={{ marginLeft: 7 }}
+          >
+            {isRegister ? "Ya tengo una cuenta" : "Quiero Registrarme"}
+          </button>
         </form>
         <button onClick={() => setIsRegister(!isRegister)}>
           {isRegister ? "Ya tengo una cuenta" : "Quiero Registrarme"}
         </button>
-        </div>   
+      </div>
     </div>
   );
 }

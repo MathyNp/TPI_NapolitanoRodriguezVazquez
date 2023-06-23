@@ -1,23 +1,33 @@
 import React from "react";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
 
 import Login from "./Pages/LoginPage/Login";
-import Game from "./GameItem/GameItems";
+
 import Error404 from "./Pages/Error404/Error404";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 import GamesPage from "./Pages/GamesPages/GamesPage";
 import Home from "./Pages/Home/Home";
+
+import data from "../games.json";
+
+import GamesReviews from "./GameReviews/GameReviews";
+
 function Routess(props) {
   return (
     <div>
-      <Router>
+      <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<Login />} />
-          <Route exact path="/Home" element={<Home />} />
+          {props.state ? <></> : <Route exact path="/" element={<Login />} />}
+
+          <Route exact path="/home" element={<Home />} />
           <Route exact path="*" element={<Error404 />} />
           <Route
-            exact
             path="/EditProfile"
             element={
               <EditProfile
@@ -28,8 +38,26 @@ function Routess(props) {
             }
           />
           <Route exact path="/Games" element={<GamesPage />} />
+          {data.map((games) => (
+            <Route
+              id={games.id}
+              path={`${games.name}`}
+              element={
+                <GamesReviews
+                  name={games.name}
+                  img={games.img}
+                  genre={games.genre}
+                  platform={games.platform}
+                  developer={games.developer}
+                  id={games.id}
+                  description={games.description}
+                  score={games.score}
+                />
+              }
+            />
+          ))}
         </Routes>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
