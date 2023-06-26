@@ -1,1 +1,38 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.box {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 50px;
+  background-color: #212529;
+  padding: auto;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  border-radius: 20px;
+  width: 450px;
+  border-bottom: 5px solid coral;
+}
+
+.reg-log {
+  color: whitesmoke;
+  border-bottom: 4px solid coral;
+  border-radius: 3px;
+  width: max-content;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+form {
+  text-align: center;
+  width: 350px;
+}
+
+#btn-lr {
+  margin-left: 1vh;
+}

@@ -1,0 +1,73 @@
+.tittle {
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: small;
+}
+
+.card {
+  color: whitesmoke;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-width: 55vh;
+  max-width: 55vh;
+  min-height: 55vh;
+  max-height: 55vh;
+  padding: 30px;
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  box-shadow: 3px 1px 60px rgba(0, 0, 0, 30);
+  outline: none;
+  border-bottom: 5px solid coral;
+}
+
+.developer {
+  margin-top: 0;
+}
+
+.iconstar {
+  font-size: 16px;
+  margin-left: 6px;
+  margin-bottom: 2px;
+  color: coral;
+}
+
+.card.tittle {
+  margin: 0px;
+}
+
+.map {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #212529;
+  padding: 2vh;
+  width: auto;
+  margin-top: none;
+}
+
+.boxT5 {
+  padding-top: 0.5vh;
+}
+
+.boxT5 h1 {
+  margin-top: 3vh;
+  border-bottom: 3px solid coral;
+  border-radius: 3px;
+  width: max-content;
+}
+
+.boxT5 p {
+  margin-bottom: 3vh;
+  color: whitesmoke;
+  width: max-content;
+}
+
+.boxtext {
+  margin-left: 10vh;
+}

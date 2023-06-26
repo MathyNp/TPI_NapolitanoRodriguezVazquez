@@ -1,17 +1,10 @@
 import React from "react";
 import GamesGalery from "../GameGallery/Games";
 import data from "../../games.json";
+import "./GameItem.css";
 const Games = () => {
   return (
-    <div
-      className="galery"
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        marginRight: 0,
-        boxSizing: "border-box",
-      }}
-    >
+    <div className="galery">
       {data.map((games, index) => {
         return (
           <GamesGalery

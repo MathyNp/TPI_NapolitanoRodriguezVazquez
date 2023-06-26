@@ -9,6 +9,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
+import "./Login.css";
+
 const auth = getAuth(firebaseApp);
 const firestone = getFirestore(firebaseApp);
 
@@ -57,37 +59,10 @@ function Login() {
     }
   }
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <div
-        style={{
-          textAlign: "center",
-          alignItems: "center",
-          justifyContent: "center",
-          display: "flex",
-          margin: "50px",
-          backgroundColor: "#212529",
-          padding: "auto",
-          paddingTop: "30px",
-          paddingBottom: "40px",
-          borderRadius: "20px",
-          width: "450px",
-          borderBottom: "5px solid coral",
-        }}
-      >
-        <form
-          style={{
-            textAlign: "center",
-            width: "350px",
-          }}
-          onSubmit={submitHandler}
-        >
-          <h2 style={{ color: "whitesmoke" }}>
+    <div className="main">
+      <div className="box">
+        <form onSubmit={submitHandler}>
+          <h2 className="reg-log">
             {" "}
             {isRegister ? "Formulario de registro" : "Iniciar sesion"}{" "}
           </h2>
@@ -135,9 +110,9 @@ function Login() {
           ></input>
 
           <button
+            id="btn-lr"
             onClick={() => setIsRegister(!isRegister)}
             className="btn btn-light"
-            style={{ marginLeft: 7 }}
           >
             {isRegister ? "Ya tengo una cuenta" : "Quiero Registrarme"}
           </button>

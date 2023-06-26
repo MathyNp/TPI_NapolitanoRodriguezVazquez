@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import "./EditProfile.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLock, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const EditProfile = (props) => {
   const [username, setusernameNew] = useState(false);
@@ -24,99 +27,109 @@ const EditProfile = (props) => {
   };
   return (
     <div>
-      <div>
-        {props.rol === "Admin" ? (
-          <div>
-            <h1>Admin view</h1>
-          </div>
-        ) : (
-          <></>
-        )}
-        {props.rol === "Company" ? (
-          <div>
-            <h1>Company View</h1>
-            <p>¿Que desea modificar?</p>
-            <h2>{props.rol}</h2>
-            <button type="submit" onClick={handleusernameNew}>
-              Nombre de Usuario
-            </button>
-            <button onClick={handleEmailNew}>Email registrado</button>
-            <button onClick={handlepasswordNew}>Contraseña</button>
-          </div>
-        ) : (
-          <></>
-        )}
-
+      <div className="conteinerEdit">
         {props.state ? (
-          <div>
-            {props.rol === "User" ? (
-              <>
-                <h1>Modificar Perfil.</h1> <h2>¡Hola {props.username}!</h2>
-                <div>
-                  <p>¿Que desea modificar?</p>
-                  <h2>{props.rol}</h2>
-                  <button type="submit" onClick={handleusernameNew}>
-                    Nombre de Usuario
+          <div id="formEdit">
+            <h1 className="tittle-form">Modificar Perfil.</h1>{" "}
+            <div>
+              <form class="row row-cols-lg-auto g-3 align-items-center mb-2">
+                <div class="col-13">
+                  <div class="input-group">
+                    <div class="input-group-text">
+                      <FontAwesomeIcon icon={faUser} />
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inlineFormInputGroupUsername"
+                      placeholder="Introduce tu nuevo nombre de usuario"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <button
+                    type="submit"
+                    class="btn btn-light"
+                    onClick={handleusernameNew}
+                  >
+                    Cambiar
                   </button>
-                  <button onClick={handleEmailNew}>Email registrado</button>
-                  <button onClick={handlepasswordNew}>Contraseña</button>
-                </div>{" "}
-              </>
-            ) : (
-              <></>
-            )}
-            {username ? (
-              <>
-                <div>
-                  <form>
-                    <label>Ingrese su nuevo nombre de Usuario.</label>
-                    <input type="text" minLength="6" maxLength="12"></input>
-                    <button>Cambiar nombre de usuario</button>
-                  </form>
                 </div>
-              </>
-            ) : (
-              <></>
-            )}
-            {email ? (
-              <>
-                <div>
-                  <form>
-                    <label>Ingrese su nuevo email</label>
+              </form>
+              {/* Editar email */}
+              <form class="row row-cols-lg-auto g-3 align-items-center mb-2">
+                <div class="col-12">
+                  <label
+                    class="visually-hidden"
+                    for="inlineFormInputGroupUsername"
+                  >
+                    Username
+                  </label>
+                  <div class="input-group">
+                    <div class="input-group-text">
+                      {" "}
+                      <FontAwesomeIcon icon={faUser} />
+                    </div>
                     <input
                       type="text"
-                      minLength="6"
-                      maxLength="12"
-                      placeholder="Nuevo email"
-                    ></input>
-                    <button>Cambiar email</button>
-                  </form>
+                      class="form-control"
+                      id="inlineFormInputGroupUsername"
+                      placeholder="Username"
+                    />
+                  </div>
                 </div>
-              </>
-            ) : (
-              <></>
-            )}
-            {password ? (
-              <>
-                <div>
-                  <form>
-                    <label>Ingrese su nueva contraseña.</label>
+
+                <div class="col-12">
+                  <button
+                    type="submit"
+                    class="btn btn-light"
+                    onClick={handleEmailNew}
+                  >
+                    Cambiar
+                  </button>
+                </div>
+              </form>
+              {/* Editar password */}
+              <form class="row row-cols-lg-auto g-3 align-items-center">
+                <div class="col-12">
+                  <label
+                    class="visually-hidden"
+                    for="inlineFormInputGroupUsername"
+                  >
+                    Username
+                  </label>
+                  <div class="input-group">
+                    <div class="input-group-text">
+                      {" "}
+                      <FontAwesomeIcon icon={faUser} />
+                    </div>
                     <input
                       type="text"
-                      minLength="6"
-                      maxLength="12"
-                      placeholder="Nueva contraseña"
-                    ></input>
-                    <button>Cambiar contraseña</button>
-                  </form>
+                      class="form-control"
+                      id="inlineFormInputGroupUsername"
+                      placeholder="Username"
+                    />
+                  </div>
                 </div>
-              </>
-            ) : (
-              <></>
-            )}
+
+                <div class="col-12">
+                  <button
+                    type="submit"
+                    class="btn btn-light"
+                    onClick={handlepasswordNew}
+                  >
+                    Cambiar
+                  </button>
+                </div>
+              </form>
+            </div>{" "}
           </div>
         ) : (
-          <>Registrese Para hacer Cambios en su perfil</>
+          <h1 className="errorSesion">
+            Debe <a href="/#"> Iniciar sesion o Registrarse</a> para poder hacer
+            cambios en su perfil.
+          </h1>
         )}
       </div>
     </div>

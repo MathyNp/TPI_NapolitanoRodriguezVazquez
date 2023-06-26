@@ -8,7 +8,23 @@
 }
 
 .select-style option {
-  background-color: #292c31; /* Establecer el fondo de las opciones */
+  background-color: #292c31;
   color: whitesmoke;
-  border: none; /* Establecer el color del texto de las opciones */
+  border: none;
+}
+
+.Game-filter {
+  display: flex;
+}
+
+.icon {
+  color: coral;
+}
+
+.GameFilterMain {
+  display: flex;
+  min-width: 8ovh;
+  max-width: 8ovh;
+  margin: 2vh;
+  margin-left: 2vh;
 }

@@ -1,0 +1,29 @@
+.conteinerEdit {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorSesion a {
+  color: coral;
+  text-decoration: none;
+}
+
+#formEdit {
+  background-color: #212529;
+  height: 80vh;
+  height: max-content;
+  padding: 3vh;
+  border-radius: 20px;
+  width: 500px;
+  border-bottom: 5px solid coral;
+  color: whitesmoke;
+}
+
+.conteinerEdit h2 {
+  color: whitesmoke;
+  border-bottom: 8px solid coral;
+  border-radius: 8px;
+  width: max-content;
+}

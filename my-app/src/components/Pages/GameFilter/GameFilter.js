@@ -50,24 +50,12 @@ const GameFilter = ({
   }
   return (
     <>
-      <div
-        className="GameFilterMain"
-        style={{
-          display: "flex",
-          minWidth: "10ovh",
-          maxWidth: "10ovh",
-          marginTop: "2vh",
-          marginLeft: "2vh",
-        }}
-      >
+      <div className="GameFilterMain">
         <button onClick={ResetFilter} className="btn btn-dark">
-          <FontAwesomeIcon
-            icon={faArrowRotateRight}
-            style={{ color: "#ff7f50", marginRight: "5px" }}
-          />
+          <FontAwesomeIcon icon={faArrowRotateRight} className="icon" />
           Reiniciar filtros
         </button>
-        <div className="Game-filter" style={{ display: "flex" }}>
+        <div className="Game-filter">
           {genrestate ? (
             <div className="Game-filter__control">
               <select

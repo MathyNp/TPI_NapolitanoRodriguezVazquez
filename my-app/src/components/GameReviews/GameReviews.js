@@ -18,55 +18,19 @@ function GamesReviews({
   score,
 }) {
   return (
-    <div
-      className="gameReviewMain"
-      style={{
-        backgroundImage: `url(${img})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        height: "100vh",
-        padding: "10vh",
-      }}
-    >
+    <div className="gameReviewMain">
       {auth.currentUser ? (
-        <div
-          style={{
-            display: "flex",
-          }}
-        >
+        <div className="cardReview">
           <div
             className="card"
             style={{
-              color: "whitesmoke",
               backgroundImage: `url(${img})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundPosition: "center center",
-              minWidth: "50vh",
-              maxWidth: "50vh",
-              minHeight: "75vh",
-              maxHeight: "75vh",
-              padding: "30px",
-              border: "none",
-              borderRadius: "1rem",
-              overflow: "hidden",
-              justifyContent: "center",
-              display: "flex",
-              alignItems: "center",
-              alignContent: "center",
-              transition: "transform 500ms ease",
-              boxShadow: "3px 1px 60px rgba(0, 0, 0, 30) ",
-              outline: "none",
+              transition: "transform 50ms ease",
             }}
           >
             <div className="card-content">
               <div className="tittle-developer">
-                <h4
-                  className="card-tittle"
-                  style={{
-                    margin: 0,
-                  }}
-                ></h4>
+                <h4 className="card-tittle"></h4>
               </div>
             </div>
           </div>

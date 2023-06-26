@@ -7,7 +7,7 @@ import { getAuth, signOut } from "firebase/auth";
 import Fuse from "fuse.js";
 import games from "../../games.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGamepad } from "@fortawesome/free-solid-svg-icons";
+import { faGamepad, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -42,10 +42,10 @@ function NavBar(props) {
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             <FontAwesomeIcon
+              className="icon"
               icon={faGamepad}
               shake
               size="xl"
-              style={{ color: "#ff7f50" }}
             />
           </a>
           <button
@@ -88,27 +88,24 @@ function NavBar(props) {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <FontAwesomeIcon
-                      icon={faUser}
-                      style={{ color: "#ff7f50", marginRight: "8px" }}
-                    />
+                    <FontAwesomeIcon icon={faUser} className="icon" />
                     {props.username}
                   </a>
                   <ul
                     className="dropdown-menu"
+                    id="desp1"
                     aria-labelledby="navbarDropdownMenuLink"
-                    style={{ backgroundColor: "#212529" }}
                   >
                     <li>
                       <a
                         className="dropdown-item d"
                         href="/EditProfile"
-                        style={{ color: "whitesmoke" }}
+                        id="desp2"
                       >
                         {" "}
                         <FontAwesomeIcon
                           icon={faPenToSquare}
-                          style={{ marginRight: "3px", color: "coral" }}
+                          className="icon"
                         />
                         Editar Perfil{" "}
                       </a>
@@ -117,13 +114,13 @@ function NavBar(props) {
                     <li>
                       <a
                         className="dropdown-item d"
+                        id="desp3"
                         onClick={() => signOut(auth)}
-                        style={{ color: "whitesmoke" }}
                       >
                         {" "}
                         <FontAwesomeIcon
                           icon={faRightFromBracket}
-                          style={{ marginRight: "3px", color: "coral" }}
+                          className="icon"
                         />
                         Cerrar Sesion{" "}
                       </a>
@@ -137,25 +134,31 @@ function NavBar(props) {
                   </a>
                 </li>
               )}
+
+              {props.rol === "Company" && (
+                <li className="nav-item">
+                  <a className="nav-link" href="/addgame">
+                    <FontAwesomeIcon
+                      icon={faSquarePlus}
+                      size="lg"
+                      id="addGame"
+                    />{" "}
+                    Agregar juego
+                  </a>
+                </li>
+              )}
             </ul>
 
             {/* Barra de busqueda  */}
 
-            <div className="search-container" style={{ marginLeft: "20px" }}>
-              <FontAwesomeIcon
-                icon={faMagnifyingGlass}
-                style={{ color: "#ff7f50", marginRight: "7px" }}
-              />
+            <div className="search-container" id="search">
+              <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
 
               <input
                 type="text"
                 name="search"
                 value={query}
                 onChange={handleOnSearch}
-                style={{
-                  borderRadius: "30px",
-                  padding: "5px",
-                }}
               />
             </div>
 
@@ -163,24 +166,9 @@ function NavBar(props) {
             {showResults && (
               <div className="search-results">
                 {GamesResults.map((game) => (
-                  <div key={game.id} style={{ maxHeight: "90vh" }}>
-                    <img
-                      src={game.img}
-                      style={{
-                        width: "50px",
-                        height: "70px",
-                        margin: "3px",
-                      }}
-                    ></img>
-                    <a
-                      href={`/${game.name}`}
-                      style={{
-                        textDecoration: "none",
-                        color: "whitesmoke",
-                        marginLeft: "10px",
-                        fontSize: "20px",
-                      }}
-                    >
+                  <div key={game.id} className="results">
+                    <img src={game.img} className="imgRes"></img>
+                    <a href={`/${game.name}`} className="resNav">
                       {game.name}
                     </a>
                   </div>
@@ -188,27 +176,13 @@ function NavBar(props) {
               </div>
             )}
           </div>
-          <div
-            style={{
-              margin: "10px",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <FontAwesomeIcon
-              icon={faSun}
-              size="xl"
-              style={{ color: "whitesmoke", marginRight: "10px" }}
-            />
+          <div className="darklightButton">
+            <FontAwesomeIcon icon={faSun} className="iconDL" size="xl" />
             <label class="switch">
               <input type="checkbox" />
               <span class="slider round"></span>
             </label>
-            <FontAwesomeIcon
-              icon={faMoon}
-              size="xl"
-              style={{ color: "whitesmoke", marginLeft: "10px" }}
-            />
+            <FontAwesomeIcon icon={faMoon} size="xl" className="iconDL" />
           </div>
         </div>
       ) : (
