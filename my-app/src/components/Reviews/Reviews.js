@@ -96,7 +96,7 @@
 import { getAuth } from "firebase/auth";
 import React, { useState } from "react";
 import firebaseApp from "../../fb";
-import ReviewsList from "./ReviewList";
+
 const auth = getAuth(firebaseApp);
 
 const addReview = async (review) => {
@@ -120,14 +120,14 @@ const addReview = async (review) => {
 
   if (response.ok) {
     // La reseña se agregó correctamente
-    alert("La reseña se agregó correctamente");
+    alert("¡La reseña se agregó correctamente!");
   } else {
     // Error al agregar la reseña
     alert("Error al agregar la reseña");
   }
 };
 
-const Reviews = ({ game }) => {
+const Reviews = ({ game, user }) => {
   const initialReviewsValue = {
     emailUser: `${auth.currentUser.email}`,
     gameName: game,
@@ -139,8 +139,10 @@ const Reviews = ({ game }) => {
   const [reviews, setReviews] = useState(initialReviewsValue);
 
   const onAddReview = () => {
-    if (auth.currentUser.email === reviews.id) {
+    if (auth.currentUser.email === user) {
       alert("Solo se puede una reseña por usuario");
+    } else if (reviews.score > 5 || reviews.score < 1) {
+      alert("Error, no se puede ingresar una valoracion mayor a 5 o menor a 1");
     } else {
       addReview(reviews);
     }

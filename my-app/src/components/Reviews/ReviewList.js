@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import firebaseApp from "../../fb";
+import Reviews from "./Reviews";
 
 const ReviewsList = ({ game }) => {
   const [reviews, setReviews] = useState([]);
