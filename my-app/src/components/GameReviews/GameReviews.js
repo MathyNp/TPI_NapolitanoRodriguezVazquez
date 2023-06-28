@@ -5,6 +5,9 @@ import firebaseApp from "../../fb";
 import "../GameReviews/GameReviews.css";
 import Reviews from "../Reviews/Reviews";
 import ReviewsList from "../Reviews/ReviewList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import "../GameReviews/GameReviews.css";
 
 const auth = getAuth(firebaseApp);
 function GamesReviews({
@@ -22,26 +25,38 @@ function GamesReviews({
   return (
     <div className="gameReviewMain">
       {auth.currentUser ? (
-        <div className="cardReview">
-          <div
-            className="card"
-            style={{
-              backgroundImage: `url(${img})`,
+        <div>
+          <div className="box">
+            <div className="content">
+              <img src={img} alt="Game Image" className="image" />
+              <div className="text">
+                <h1 className="tittleGames">{name}</h1>
+                <h3>Genero: {genre}</h3>
+                <h3>Desarrolladora: {developer}</h3>
+                <h2 className="score">
+                  {score}{" "}
+                  <FontAwesomeIcon icon={faStar} style={{ color: "coral" }} />{" "}
+                </h2>
+                <p>{description}</p>
 
-              transition: "transform 50ms ease",
-            }}
-          >
-            <div className="card-content">
-              <div className="tittle-developer">
-                <h4 className="card-tittle"></h4>
+                <button className="btn btn-light" id="btnRev">
+                  {" "}
+                  Dar mi reseña{" "}
+                </button>
               </div>
             </div>
           </div>
-          <Reviews game={name} />
-          <ReviewsList game={name} />
+
+          <div className="reviews">
+            <div className="cardReview">
+              <Reviews game={name} />
+
+              <ReviewsList game={name} />
+            </div>
+          </div>
         </div>
       ) : (
-        <h1>
+        <h1 className="link">
           Registrese <a href="/">aquí</a> o inicie sesion para poder dar su
           reseña
         </h1>

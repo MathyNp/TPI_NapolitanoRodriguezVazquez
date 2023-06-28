@@ -1,17 +1,13 @@
 footer {
   color: darkgray;
-  height: 20px;
-  position: absolute;
+  height: 30px;
+  position: fixed;
   bottom: 0;
   width: 100%;
   display: flex;
   justify-content: center;
-  font-size: small;
-}
 
-body {
-  position: relative;
-  padding-bottom: 20px;
+  font-size: small;
 }
 
 footer p {

@@ -21,7 +21,8 @@
   background-color: whitesmoke;
   border-radius: 10px;
   align-items: center;
-  width: 500px;
+  width: 400px;
+  margin-left: 200px;
 }
 
 .search-container input {
@@ -35,7 +36,7 @@
 
 nav {
   border-bottom: 5px solid coral;
-  height: 65px;
+  height: 75px;
 }
 
 nav img {
@@ -62,6 +63,8 @@ nav img {
 
 .search-results div:hover {
   background-color: #0d0d0e;
+  border-radius: 0 0 0 25px;
+  margin-top: none;
 }
 
 .switch {
@@ -123,8 +126,59 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-.light-theme {
-  background-color: #f9f9fa;
-  color: rgb(8, 8, 8);
-  height: 100vh;
+
+.iconDL {
+  color: whitesmoke;
+  margin: 10px;
+}
+
+.darklightButton {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.resNav {
+  text-decoration: none;
+  color: whitesmoke;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.icon {
+  color: coral;
+  margin-right: 10px;
+}
+
+#desp3,
+#desp2 {
+  color: whitesmoke;
+}
+
+#desp3:hover,
+#desp2:hover {
+  background-color: black;
+}
+
+#desp1 {
+  background-color: #212529;
+}
+
+#search {
+  margin-left: 20px;
+}
+
+.results {
+  max-height: 90vh;
+}
+
+.imgRes {
+  width: 60px;
+  height: 70px;
+  margin: 5px;
+}
+
+#addGame {
+  color: coral;
+  margin-right: 1vh;
 }

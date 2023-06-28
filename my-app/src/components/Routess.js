@@ -6,8 +6,10 @@ import Error404 from "./Pages/Error404/Error404";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 import GamesPage from "./Pages/GamesPages/GamesPage";
 import Home from "./Pages/Home/Home";
-import data from "../games.json";
+import AddGame from "./Pages/AddGame/AddGame";
 import GamesReviews from "./GameReviews/GameReviews";
+
+import data from "../games.json";
 
 function Routess(props) {
   return (
@@ -36,10 +38,8 @@ function Routess(props) {
             key={games.id}
             id={games.id}
             path={`/${games.name}`}
-            username={props.username}
             element={
               <GamesReviews
-                username={props.username}
                 name={games.name}
                 img={games.img}
                 genre={games.genre}
@@ -52,6 +52,7 @@ function Routess(props) {
             }
           />
         ))}
+        <Route exact path="/addgame" element={<AddGame />} />
       </Routes>
     </Router>
   );

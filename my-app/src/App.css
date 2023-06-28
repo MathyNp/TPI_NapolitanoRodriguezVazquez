@@ -2,6 +2,7 @@
   text-align: center;
   background-color: #2d3035;
   min-height: 100vh;
+
   align-items: center;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
@@ -18,7 +19,8 @@ div::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
 .light-theme {
-  background-color: #f9f9fa;
-  color: rgb(8, 8, 8);
+  background-color: whitesmoke;
+  color: violet;
+
   height: 100vh;
 }

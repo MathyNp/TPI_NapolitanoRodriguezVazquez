@@ -6,16 +6,24 @@
   margin-left: 30px;
   padding: 1vh;
 }
-.Game-filter-light select {
+.select-style option {
+  background-color: #292c31;
+  color: whitesmoke;
   border: none;
-  background-color: none;
-  background: none;
-  color: black;
-  margin-left: 30px;
-  padding: 1vh;
 }
-.Game-filter-light option {
-  background-color: #292c31; /* Establecer el fondo de las opciones */
-  color: black;
-  border: none; /* Establecer el color del texto de las opciones */
+
+.Game-filter {
+  display: flex;
+}
+
+.icon {
+  color: coral;
+}
+
+.GameFilterMain {
+  display: flex;
+  min-width: 8ovh;
+  max-width: 8ovh;
+  margin: 2vh;
+  margin-left: 2vh;
 }

@@ -1,0 +1,30 @@
+.mainAg {
+  width: 70vh;
+  padding: 10px;
+}
+
+.box {
+  background-color: #212529;
+  height: 90vh;
+  height: max-content;
+  padding: 3vh;
+  border-radius: 20px;
+  width: 700px;
+  border-bottom: 5px solid coral;
+  color: whitesmoke;
+}
+
+.selectGenre {
+  width: 100%;
+  padding: 3px;
+}
+
+.tittle-form {
+  border-bottom: 4px solid coral;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.formAddgame {
+  width: 500px;
+}

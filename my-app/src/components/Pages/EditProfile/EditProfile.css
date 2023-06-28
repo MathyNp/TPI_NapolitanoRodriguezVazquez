@@ -1,0 +1,52 @@
+.conteinerEdit {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorSesion a {
+  color: coral;
+  text-decoration: none;
+}
+
+#formEdit {
+  background-color: #212529;
+  height: 80vh;
+  height: max-content;
+  padding: 3vh;
+  border-radius: 20px;
+  width: 500px;
+  border-bottom: 5px solid coral;
+  color: whitesmoke;
+}
+
+.conteinerEdit h2 {
+  color: whitesmoke;
+  border-bottom: 8px solid coral;
+  border-radius: 8px;
+  width: max-content;
+}
+
+.foinp {
+  display: flex;
+  align-items: center;
+}
+
+.inpform {
+  min-width: 400px;
+  margin-bottom: 10px;
+}
+
+.btnInp {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: coral;
+  color: whitesmoke;
+}
+
+.title {
+  border-bottom: 5px solid coral;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}

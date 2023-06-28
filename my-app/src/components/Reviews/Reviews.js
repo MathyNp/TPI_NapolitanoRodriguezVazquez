@@ -151,6 +151,7 @@ const Reviews = ({ game, user }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddReview();
+    setReviews({ ...initialReviewsValue });
   };
 
   const handleInputChange = (e) => {

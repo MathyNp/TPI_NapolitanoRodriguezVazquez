@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import games from "../../../games.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
+import "./Home.css";
+import { ThemeContext } from "../../Services/ThemeContext";
+
 const Home = () => {
+  const { theme } = useContext(ThemeContext);
   const [gameList, setGameList] = useState([]);
   const [top3Games, setTop3Games] = useState([]);
 
@@ -22,78 +26,45 @@ const Home = () => {
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        marginTop: "50px",
-      }}
-    >
-      {top3Games.map((game) => (
-        <div
-          key={game.id}
-          style={{
-            margin: "auto",
-          }}
-        >
-          <a
-            href={`/${game.name}`}
-            style={{ textDecoration: "none", color: "whitesmoke" }}
+    <div className="boxT5">
+      <div className="boxtext">
+        <h1>TOP 3 JUEGOS DE LA COMUNIDAD</h1>
+        <p>
+          Bienvenido, esta es una lista de los 3 videojuegos mejor valorados por
+          nuestra comunidad.
+        </p>
+      </div>
+      <div className="map">
+        {top3Games.map((game) => (
+          <div
+            key={game.id}
+            style={{
+              margin: "auto",
+            }}
           >
-            <div
-              className="card"
-              style={{
-                color: "whitesmoke",
-                backgroundImage: `url(${game.img})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPosition: "center center",
-                minWidth: "60vh",
-                maxWidth: "60vh",
-                minHeight: "75vh",
-                maxHeight: "75vh",
-                padding: "30px",
-                border: "none",
-                borderRadius: "1rem",
-                overflow: "hidden",
-                justifyContent: "center",
-                alignItems: "center",
-                alignContent: "center",
-                transition: "transform 500ms ease",
-                boxShadow: "3px 1px 60px rgba(0, 0, 0, 30)",
-                outline: "none",
-                borderBottom: "5px solid coral",
-              }}
-            >
-              <div className="card-content">
-                <div className="tittle-developer">
-                  <h2
-                    className="card-tittle"
-                    style={{
-                      margin: 0,
-                    }}
-                  >
-                    {game.name}
-                  </h2>
-                  <h4 className="developer" style={{ marginTop: 0 }}>
-                    {game.developer} - {game.score}
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{
-                        fontSize: "16px",
-                        marginLeft: "6px",
-                        marginBottom: "2px",
-                        color: "coral",
-                      }}
-                    />
-                  </h4>
+            <a href={`/${game.name}`} className="tittle">
+              <div
+                className="card"
+                style={{
+                  backgroundImage: `url(${game.img})`,
+
+                  transition: "transform 500ms ease",
+                }}
+              >
+                <div className="card-content">
+                  <div className="tittle-developer">
+                    <h2 className="card-tittle">{game.name}</h2>
+                    <h4 className="developer">
+                      {game.developer} - {game.score}
+                      <FontAwesomeIcon icon={faStar} className="iconstar" />
+                    </h4>
+                  </div>
                 </div>
               </div>
-            </div>
-          </a>
-        </div>
-      ))}
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

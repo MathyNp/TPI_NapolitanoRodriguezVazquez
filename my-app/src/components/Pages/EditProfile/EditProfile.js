@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import "./EditProfile.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLock, faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const EditProfile = (props) => {
   const [username, setusernameNew] = useState(false);
@@ -24,99 +27,68 @@ const EditProfile = (props) => {
   };
   return (
     <div>
-      <div>
-        {props.rol === "Admin" ? (
-          <div>
-            <h1>Admin view</h1>
-          </div>
-        ) : (
-          <></>
-        )}
-        {props.rol === "Company" ? (
-          <div>
-            <h1>Company View</h1>
-            <p>¿Que desea modificar?</p>
-            <h2>{props.rol}</h2>
-            <button type="submit" onClick={handleusernameNew}>
-              Nombre de Usuario
-            </button>
-            <button onClick={handleEmailNew}>Email registrado</button>
-            <button onClick={handlepasswordNew}>Contraseña</button>
-          </div>
-        ) : (
-          <></>
-        )}
-
+      <div className="conteinerEdit">
         {props.state ? (
-          <div>
-            {props.rol === "User" ? (
-              <>
-                <h1>Modificar Perfil.</h1> <h2>¡Hola {props.username}!</h2>
-                <div>
-                  <p>¿Que desea modificar?</p>
-                  <h2>{props.rol}</h2>
-                  <button type="submit" onClick={handleusernameNew}>
-                    Nombre de Usuario
-                  </button>
-                  <button onClick={handleEmailNew}>Email registrado</button>
-                  <button onClick={handlepasswordNew}>Contraseña</button>
-                </div>{" "}
-              </>
-            ) : (
-              <></>
-            )}
-            {username ? (
-              <>
-                <div>
-                  <form>
-                    <label>Ingrese su nuevo nombre de Usuario.</label>
-                    <input type="text" minLength="6" maxLength="12"></input>
-                    <button>Cambiar nombre de usuario</button>
-                  </form>
-                </div>
-              </>
-            ) : (
-              <></>
-            )}
-            {email ? (
-              <>
-                <div>
-                  <form>
-                    <label>Ingrese su nuevo email</label>
-                    <input
-                      type="text"
-                      minLength="6"
-                      maxLength="12"
-                      placeholder="Nuevo email"
-                    ></input>
-                    <button>Cambiar email</button>
-                  </form>
-                </div>
-              </>
-            ) : (
-              <></>
-            )}
-            {password ? (
-              <>
-                <div>
-                  <form>
-                    <label>Ingrese su nueva contraseña.</label>
-                    <input
-                      type="text"
-                      minLength="6"
-                      maxLength="12"
-                      placeholder="Nueva contraseña"
-                    ></input>
-                    <button>Cambiar contraseña</button>
-                  </form>
-                </div>
-              </>
-            ) : (
-              <></>
-            )}
+          <div id="formEdit">
+            <div className="title">
+              {" "}
+              <h1> Editar perfil </h1>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-auto col-form-label">
+                <FontAwesomeIcon icon={faUser} className="icon" /> Nombre de
+                usuario
+              </label>
+            </div>
+            <div class="mb-3 row">
+              <div class="col-sm-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Ingrese su nuevo nombre de usuario"
+                  onChange={handleusernameNew}
+                />
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-auto col-form-label">
+                <FontAwesomeIcon icon={faLock} className="icon" /> Contraseña
+              </label>
+            </div>
+            <div class="mb-3 row">
+              <div class="col-sm-12">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Ingrese su nuevo nombre de usuario"
+                  onChange={handlepasswordNew}
+                />
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-auto col-form-label">
+                <FontAwesomeIcon icon={faEnvelope} className="icon" /> Correo
+                electronico
+              </label>
+            </div>
+            <div class="mb-3 row">
+              <div class="col-sm-12">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Ingrese su nuevo correo electronico"
+                  onChange={handleEmailNew}
+                />
+              </div>
+            </div>
+            <button className="btn btn-light"> Guardar cambios</button>
           </div>
         ) : (
-          <>Registrese Para hacer Cambios en su perfil</>
+          <h1 className="errorSesion">
+            Debe <a href="/#">Iniciar sesión o Registrarse</a> para poder hacer
+            cambios en su perfil.
+          </h1>
         )}
       </div>
     </div>

@@ -1,25 +1,83 @@
-.card {
-  color: whitesmoke;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  min-width: 37ch;
-  max-width: 37ch;
-  min-height: 55ch;
-  max-height: 55ch;
-  padding: 30px;
-  border: none;
-  border-radius: 1rem;
-  overflow: hidden;
-  justify-content: center;
+.gameReviewMain {
   display: flex;
+  justify-content: center;
   align-items: center;
-  align-content: center;
-  box-shadow: 3px 1px 60px rgba(0, 0, 0, 30);
-  outline: none;
-  border-bottom: 5px solid coral;
+  width: 100%;
+  margin-top: 30px;
 }
 
+.box {
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  min-width: 600px;
+  max-width: 1300px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.boxr {
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  min-width: 600px;
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: #212529;
+  margin-bottom: 50px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.image {
+  width: 400px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 20px;
+}
+
+.text {
+  flex: 2;
+}
+
+h1,
+h3,
+p {
+  margin: 0;
+}
+
+.tittleGames {
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 6px solid coral;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#btnRev {
+  margin-top: 20px;
+}
 .cardReview {
   display: flex;
+}
+.link a {
+  color: coral;
+  text-decoration: none;
 }

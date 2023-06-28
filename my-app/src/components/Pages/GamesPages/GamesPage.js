@@ -59,9 +59,9 @@ const GamesPage = () => {
   const GamesDeveloperMapped = data
     .filter((game) => game.developer === filterDeveloper)
 
-    .map((games, index) => (
+    .map((games, key) => (
       <GamesGalery
-        key={index}
+        key={key}
         id={games.id}
         img={games.img}
         name={games.name}
