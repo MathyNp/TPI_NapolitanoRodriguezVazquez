@@ -20,19 +20,30 @@ function GamesReviews({
   return (
     <div className="gameReviewMain">
       {auth.currentUser ? (
-        <div className="cardReview">
-          <div
-            className="card"
-            style={{
-              backgroundImage: `url(${img})`,
-              transition: "transform 50ms ease",
-            }}
-          >
-            <div className="card-content">
-              <div className="tittle-developer">
-                <h4 className="card-tittle"></h4>
+        <div>
+          <div className="box">
+            <div className="content">
+              <img src={img} alt="Game Image" className="image" />
+              <div className="text">
+                <h1 className="tittleGames">{name}</h1>
+                <h3>Genero: {genre}</h3>
+                <h3>Desarrolladora: {developer}</h3>
+                <h2 className="score">
+                  {score}{" "}
+                  <FontAwesomeIcon icon={faStar} style={{ color: "coral" }} />{" "}
+                </h2>
+                <p>{description}</p>
+
+                <button className="btn btn-light" id="btnRev">
+                  {" "}
+                  Dar mi reseña{" "}
+                </button>
               </div>
             </div>
+          </div>
+
+          <div className="reviews">
+            <p className="boxr"> aca mapeas las reviews </p>
           </div>
         </div>
       ) : (

@@ -54,9 +54,9 @@ const GamesPage = ({ filterGenre, filterPlatform, filterDeveloper }) => {
   const GamesDeveloperMapped = data
     .filter((game) => game.developer === filterdeveloper)
 
-    .map((games, index) => (
+    .map((games, key) => (
       <GamesGalery
-        key={index}
+        key={key}
         id={games.id}
         img={games.img}
         name={games.name}

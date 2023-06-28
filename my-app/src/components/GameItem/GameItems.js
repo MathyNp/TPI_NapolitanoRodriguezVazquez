@@ -5,10 +5,10 @@ import "./GameItem.css";
 const Games = () => {
   return (
     <div className="galery">
-      {data.map((games, index) => {
+      {data.map((games, key) => {
         return (
           <GamesGalery
-            key={index}
+            key={key}
             name={games.name}
             img={games.img}
             genre={games.genre}

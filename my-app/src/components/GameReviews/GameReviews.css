@@ -1,0 +1,79 @@
+.gameReviewMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.box {
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  min-width: 600px;
+  max-width: 1300px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.boxr {
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  min-width: 600px;
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: #212529;
+  margin-bottom: 50px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.image {
+  width: 400px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 20px;
+}
+
+.text {
+  flex: 2;
+}
+
+h1,
+h3,
+p {
+  margin: 0;
+}
+
+.tittleGames {
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 6px solid coral;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.score {
+}
+
+#btnRev {
+  margin-top: 20px;
+}

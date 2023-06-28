@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./EditProfile.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLock, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const EditProfile = (props) => {
   const [username, setusernameNew] = useState(false);
@@ -30,104 +30,61 @@ const EditProfile = (props) => {
       <div className="conteinerEdit">
         {props.state ? (
           <div id="formEdit">
-            <h1 className="tittle-form">Modificar Perfil.</h1>{" "}
-            <div>
-              <form class="row row-cols-lg-auto g-3 align-items-center mb-2">
-                <div class="col-13">
-                  <div class="input-group">
-                    <div class="input-group-text">
-                      <FontAwesomeIcon icon={faUser} />
-                    </div>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inlineFormInputGroupUsername"
-                      placeholder="Introduce tu nuevo nombre de usuario"
-                    />
-                  </div>
-                </div>
+            <div className="title">
+              {" "}
+              <h1> Editar perfil </h1>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-auto col-form-label">
+                <FontAwesomeIcon icon={faUser} className="icon" /> Nombre de
+                usuario
+              </label>
+            </div>
+            <div class="mb-3 row">
+              <div class="col-sm-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Ingrese su nuevo nombre de usuario"
+                />
+              </div>
+            </div>
 
-                <div class="col-12">
-                  <button
-                    type="submit"
-                    class="btn btn-light"
-                    onClick={handleusernameNew}
-                  >
-                    Cambiar
-                  </button>
-                </div>
-              </form>
-              {/* Editar email */}
-              <form class="row row-cols-lg-auto g-3 align-items-center mb-2">
-                <div class="col-12">
-                  <label
-                    class="visually-hidden"
-                    for="inlineFormInputGroupUsername"
-                  >
-                    Username
-                  </label>
-                  <div class="input-group">
-                    <div class="input-group-text">
-                      {" "}
-                      <FontAwesomeIcon icon={faUser} />
-                    </div>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inlineFormInputGroupUsername"
-                      placeholder="Username"
-                    />
-                  </div>
-                </div>
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-auto col-form-label">
+                <FontAwesomeIcon icon={faLock} className="icon" /> Contraseña
+              </label>
+            </div>
+            <div class="mb-3 row">
+              <div class="col-sm-12">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Ingrese su nuevo nombre de usuario"
+                />
+              </div>
+            </div>
 
-                <div class="col-12">
-                  <button
-                    type="submit"
-                    class="btn btn-light"
-                    onClick={handleEmailNew}
-                  >
-                    Cambiar
-                  </button>
-                </div>
-              </form>
-              {/* Editar password */}
-              <form class="row row-cols-lg-auto g-3 align-items-center">
-                <div class="col-12">
-                  <label
-                    class="visually-hidden"
-                    for="inlineFormInputGroupUsername"
-                  >
-                    Username
-                  </label>
-                  <div class="input-group">
-                    <div class="input-group-text">
-                      {" "}
-                      <FontAwesomeIcon icon={faUser} />
-                    </div>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inlineFormInputGroupUsername"
-                      placeholder="Username"
-                    />
-                  </div>
-                </div>
-
-                <div class="col-12">
-                  <button
-                    type="submit"
-                    class="btn btn-light"
-                    onClick={handlepasswordNew}
-                  >
-                    Cambiar
-                  </button>
-                </div>
-              </form>
-            </div>{" "}
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-auto col-form-label">
+                <FontAwesomeIcon icon={faEnvelope} className="icon" /> Correo
+                electronico
+              </label>
+            </div>
+            <div class="mb-3 row">
+              <div class="col-sm-12">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Ingrese su nuevo correo electronico"
+                />
+              </div>
+            </div>
+            <button className="btn btn-light"> Guardar cambios</button>
           </div>
         ) : (
           <h1 className="errorSesion">
-            Debe <a href="/#"> Iniciar sesion o Registrarse</a> para poder hacer
+            Debe <a href="/#">Iniciar sesión o Registrarse</a> para poder hacer
             cambios en su perfil.
           </h1>
         )}

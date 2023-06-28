@@ -27,3 +27,26 @@
   border-radius: 8px;
   width: max-content;
 }
+
+.foinp {
+  display: flex;
+  align-items: center;
+}
+
+.inpform {
+  min-width: 400px;
+  margin-bottom: 10px;
+}
+
+.btnInp {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: coral;
+  color: whitesmoke;
+}
+
+.title {
+  border-bottom: 5px solid coral;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
