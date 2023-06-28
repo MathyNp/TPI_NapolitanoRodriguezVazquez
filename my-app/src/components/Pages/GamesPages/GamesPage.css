@@ -5,3 +5,9 @@
   margin: auto;
   padding: auto;
 }
+.games-filter-buttons-light {
+  color: black;
+}
+.gamesFilterMain-light {
+  background-color: whitesmoke;
+}

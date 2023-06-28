@@ -14,9 +14,10 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
-
+import { ThemeContext } from "../Services/ThemeContext";
 import Loader from "../Loader/Loader";
-
+import { useContext } from "react";
+import ToggleTheme from "../ui/ToggleTheme";
 const auth = getAuth(firebaseApp);
 
 function NavBar(props) {
@@ -37,7 +38,7 @@ function NavBar(props) {
   const GamesResults = results.map((results) => results.item);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       {props.loading1 === false ? (
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
@@ -188,32 +189,11 @@ function NavBar(props) {
               </div>
             )}
           </div>
-          <div
-            style={{
-              margin: "10px",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <FontAwesomeIcon
-              icon={faSun}
-              size="xl"
-              style={{ color: "whitesmoke", marginRight: "10px" }}
-            />
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-            <FontAwesomeIcon
-              icon={faMoon}
-              size="xl"
-              style={{ color: "whitesmoke", marginLeft: "10px" }}
-            />
-          </div>
         </div>
       ) : (
         <Loader />
       )}
+      <ToggleTheme />
     </nav>
   );
 }

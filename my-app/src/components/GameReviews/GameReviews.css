@@ -1,0 +1,25 @@
+.card {
+  color: whitesmoke;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-width: 37ch;
+  max-width: 37ch;
+  min-height: 55ch;
+  max-height: 55ch;
+  padding: 30px;
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  box-shadow: 3px 1px 60px rgba(0, 0, 0, 30);
+  outline: none;
+  border-bottom: 5px solid coral;
+}
+
+.cardReview {
+  display: flex;
+}

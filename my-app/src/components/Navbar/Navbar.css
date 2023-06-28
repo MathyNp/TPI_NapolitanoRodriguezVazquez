@@ -123,3 +123,8 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+.light-theme {
+  background-color: #f9f9fa;
+  color: rgb(8, 8, 8);
+  height: 100vh;
+}
