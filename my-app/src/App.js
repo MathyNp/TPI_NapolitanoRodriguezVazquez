@@ -77,7 +77,12 @@ const App = () => {
       )}
 
       {user ? (
-        <Routess rol={user.rol} state={user} username={user.username} />
+        <Routess
+          rol={user.rol}
+          state={user}
+          username={user.username}
+          email={user.email}
+        />
       ) : (
         <Routess />
       )}

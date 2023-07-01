@@ -29,6 +29,7 @@ function Routess(props) {
               username={props.username}
               state={props.state}
               rol={props.rol}
+              email={props.email}
             />
           }
         />
