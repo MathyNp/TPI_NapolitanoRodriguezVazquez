@@ -1,43 +1,69 @@
 import React, { useState } from "react";
 import "./EditProfile.css";
-import { getAuth, updatePassword } from "firebase/auth";
+import { getAuth, updateEmail, updatePassword } from "firebase/auth";
 import firebaseApp from "../../../fb";
+
 const auth = getAuth(firebaseApp);
 
-const EditProfile = (props) => {
-  const [password, setPassword] = useState("123456789");
+const EditProfile = () => {
+  const [newEmail, setNewEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
-  const handleSubmitPassword = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const user = auth.currentUser;
-    console.log(props.email);
-    if (!password) {
-      alert("La contraseña no puede estar vacía.");
+
+    if (!newEmail && !newPassword) {
+      alert("Debe ingresar al menos un campo para actualizar.");
       return;
     }
-    updatePassword(user, password)
-      .then(() => {
-        alert("Contraseña actualizada correctamente.");
-      })
-      .catch((error) => {
-        alert("Se produjo un error al actualizar la contraseña.");
-      });
+
+    if (newEmail) {
+      updateEmail(user, newEmail)
+        .then(() => {
+          alert("Correo electrónico actualizado correctamente.");
+        })
+        .catch((error) => {
+          alert("Se produjo un error al actualizar el correo electrónico.");
+        });
+    }
+
+    if (newPassword) {
+      updatePassword(user, newPassword)
+        .then(() => {
+          alert("Contraseña actualizada correctamente.");
+        })
+        .catch((error) => {
+          alert("Se produjo un error al actualizar la contraseña.");
+        });
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    setNewEmail(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+    setNewPassword(e.target.value);
   };
 
   return (
     <div className="mb-3 row">
       <div className="col-sm-12">
-        <form id="formEdit" onSubmit={handleSubmitPassword}>
+        <form id="formEdit" onSubmit={handleSubmit}>
+          <input
+            onChange={handleEmailChange}
+            type="email"
+            className="form-control"
+            placeholder="Ingrese su nuevo correo electrónico"
+            value={newEmail}
+          />
           <input
             onChange={handlePasswordChange}
             type="password"
             className="form-control"
             placeholder="Ingrese su nueva contraseña"
-            value={password}
+            value={newPassword}
           />
           <button className="btn btn-light" type="submit">
             Guardar cambios

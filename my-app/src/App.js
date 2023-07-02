@@ -12,6 +12,7 @@ import NavBar from "./components/Navbar/NavBar";
 import Routess from "../src/components/Routess";
 import Footer from "../src/components/Footer/Footer";
 import { ThemeContext } from "./components/Services/ThemeContext";
+import EditProfile from "./components/Pages/EditProfile/EditProfile";
 
 const auth = getAuth(firebaseApp);
 const firestone = getFirestore(firebaseApp);
