@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useCallback } from "react";
-import { ThemeContext } from "../Services/ThemeContext";
-import { Button } from "react-bootstrap";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
+import { ThemeContext } from "../Services/ThemeContext";
 const ToggleTheme = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+
 import "./EditProfile.css";
+
 import { getAuth, updateEmail, updatePassword } from "firebase/auth";
+
 import firebaseApp from "../../../fb";
 
 const auth = getAuth(firebaseApp);

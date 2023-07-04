@@ -1,13 +1,15 @@
 import React from "react";
+
 import { getAuth } from "firebase/auth";
 import firebaseApp from "../../fb";
 
 import "../GameReviews/GameReviews.css";
-import Reviews from "../Reviews/Reviews";
-import ReviewsList from "../Reviews/ReviewList";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import "../GameReviews/GameReviews.css";
+
+import Reviews from "../Reviews/Reviews";
+import ReviewsList from "../Reviews/ReviewList";
 
 const auth = getAuth(firebaseApp);
 function GamesReviews({

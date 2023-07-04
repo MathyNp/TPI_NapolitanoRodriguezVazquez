@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import data from "../../../games.json";
+
 import "../GamesPages/GamesPage.css";
+
+import data from "../../../games.json";
 import GamesGalery from "../../GameGallery/Games";
 import GameFilter from "../GameFilter/GameFilter";
-import Game from "../../GameItem/GameItems";
 
 const GamesPage = () => {
   const [filterGenre, setFilterGenre] = useState("");

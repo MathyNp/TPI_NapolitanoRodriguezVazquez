@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import games from "../../../games.json";
+
+import "./Home.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-import "./Home.css";
 import { ThemeContext } from "../../Services/ThemeContext";
+import games from "../../../games.json";
 
 const Home = () => {
   const { theme } = useContext(ThemeContext);

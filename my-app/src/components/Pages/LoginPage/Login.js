@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import firebaseApp from "../../../fb";
+
+import "./Login.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
 
-import "./Login.css";
+import firebaseApp from "../../../fb";
 
 const auth = getAuth(firebaseApp);
 const firestone = getFirestore(firebaseApp);

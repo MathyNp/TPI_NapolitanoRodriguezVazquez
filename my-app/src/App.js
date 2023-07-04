@@ -1,18 +1,17 @@
+import React, { useContext, useEffect, useState } from "react";
+
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../src/Scrollbar.css";
 
-import React, { useContext, useEffect, useState } from "react";
 import firebaseApp from "./fb";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 import NavBar from "./components/Navbar/NavBar";
-
 import Routess from "../src/components/Routess";
 import Footer from "../src/components/Footer/Footer";
 import { ThemeContext } from "./components/Services/ThemeContext";
-import EditProfile from "./components/Pages/EditProfile/EditProfile";
 
 const auth = getAuth(firebaseApp);
 const firestone = getFirestore(firebaseApp);
@@ -62,7 +61,7 @@ const App = () => {
         setUser(null);
       }
     });
-  }, []);
+  }, [user]);
 
   return (
     <div className={`${theme === "light" && "light-theme"} App`}>

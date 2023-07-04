@@ -1,7 +1,10 @@
 import React from "react";
+
+import "./GameItem.css";
+
 import GamesGalery from "../GameGallery/Games";
 import data from "../../games.json";
-import "./GameItem.css";
+
 const Games = () => {
   return (
     <div className="galery">

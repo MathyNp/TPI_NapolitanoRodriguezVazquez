@@ -1,9 +1,11 @@
 import "./GameFiler.css";
 
 import { useState } from "react";
-import Game from "../../GameItem/GameItems";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRotateRight } from "@fortawesome/free-solid-svg-icons";
+
+import Game from "../../GameItem/GameItems";
 
 const GameFilter = ({
   onFilterGenreChange,

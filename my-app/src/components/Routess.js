@@ -8,7 +8,6 @@ import GamesPage from "./Pages/GamesPages/GamesPage";
 import Home from "./Pages/Home/Home";
 import AddGame from "./Pages/AddGame/AddGame";
 import GamesReviews from "./GameReviews/GameReviews";
-
 import data from "../games.json";
 
 function Routess(props) {

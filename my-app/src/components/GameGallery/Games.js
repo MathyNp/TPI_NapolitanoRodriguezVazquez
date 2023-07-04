@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./Games.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
