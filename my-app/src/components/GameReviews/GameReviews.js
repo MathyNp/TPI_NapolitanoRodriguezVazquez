@@ -38,19 +38,17 @@ function GamesReviews({
                   <FontAwesomeIcon icon={faStar} style={{ color: "coral" }} />{" "}
                 </h2>
                 <p>{description}</p>
-
-                <button className="btn btn-light" id="btnRev">
-                  {" "}
-                  Dar mi reseña{" "}
-                </button>
               </div>
             </div>
           </div>
 
-          <div className="reviews">
+          <div className="box">
             <div className="cardReview">
-              <Reviews game={name} />
-
+              <Reviews />
+            </div>
+          </div>
+          <div className="box">
+            <div className="cardReview">
               <ReviewsList game={name} />
             </div>
           </div>

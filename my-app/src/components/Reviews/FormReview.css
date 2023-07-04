@@ -1,0 +1,28 @@
+.contentR {
+  background: #2e6edc;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 500px;
+}
+
+.product h1 {
+  font-size: 20px;
+}
+textarea {
+  width: 100%;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.btn {
+  margin-top: 10px;
+}
+
+.iconScore {
+  color: coral;
+  margin-right: 5px;
+}
+
+.stars {
+  margin-bottom: 10px;
+}

@@ -12,9 +12,7 @@ import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { faSun } from "@fortawesome/free-solid-svg-icons";
-import { faMoon } from "@fortawesome/free-solid-svg-icons";
-import { ThemeContext } from "../Services/ThemeContext";
+
 import Loader from "../Loader/Loader";
 import { useContext } from "react";
 import ToggleTheme from "../ui/ToggleTheme";
@@ -42,12 +40,7 @@ function NavBar(props) {
       {props.loading1 === false ? (
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            <FontAwesomeIcon
-              className="icon"
-              icon={faGamepad}
-              shake
-              size="xl"
-            />
+            <FontAwesomeIcon className="icon" icon={faGamepad} size="xl" />
           </a>
           <button
             className="navbar-toggler"
