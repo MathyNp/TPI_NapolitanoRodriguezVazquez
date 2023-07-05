@@ -29,7 +29,7 @@ function GamesReviews({
     <div className="gameReviewMain">
       {auth.currentUser ? (
         <div>
-          <div className="box">
+          <div className="box" id="boxRev">
             <div className="content">
               <img src={img} alt="Game Image" className="image" />
               <div className="text">
@@ -40,19 +40,18 @@ function GamesReviews({
                   <ReviewsScore game={name} />
                 </h2>
                 <p>{description}</p>
-
-                <button className="btn btn-light" id="btnRev">
-                  {" "}
-                  Dar mi reseña{" "}
-                </button>
               </div>
             </div>
           </div>
 
-          <div className="reviews">
-            <div className="cardReview">
+          <div className="box" id="boxRev">
+            <div className="formReviewsMain">
+              <h1 className="tittleGames"> Dar mi reseña</h1>
               <Reviews game={name} />
-
+            </div>
+          </div>
+          <div className="box" id="boxRevBot">
+            <div className="cardReview">
               <ReviewsList game={name} />
             </div>
           </div>

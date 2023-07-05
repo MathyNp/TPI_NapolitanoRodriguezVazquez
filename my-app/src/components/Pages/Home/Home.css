@@ -65,9 +65,17 @@
 .boxT5 p {
   margin-bottom: 3vh;
   color: whitesmoke;
-  width: max-content;
 }
 
 .boxtext {
   margin-left: 10vh;
+  overflow: hidden;
+  width: 90%;
+  text-align: left;
+}
+
+.boxtext p {
+  word-wrap: break-word;
+  margin-top: 10px;
+  font-size: medium;
 }

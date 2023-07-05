@@ -5,6 +5,9 @@ import "./EditProfile.css";
 import { getAuth, updateEmail, updatePassword } from "firebase/auth";
 
 import firebaseApp from "../../../fb";
+import ReviewsUser from "../../Reviews/ReviewsUser";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 const auth = getAuth(firebaseApp);
 
@@ -51,21 +54,26 @@ const EditProfile = () => {
   };
 
   return (
-    <div className="mb-3 row">
-      <div className="col-sm-12">
+    <div>
+      <ReviewsUser />
+      <div className="conteinerEdit">
         <form id="formEdit" onSubmit={handleSubmit}>
+          <h1 style={{ paddingBottom: "25px" }}>
+            <FontAwesomeIcon icon={faPenToSquare} className="icon" />
+            Modificar Credenciales{" "}
+          </h1>
+          <label>Ingrese su nuevo correo electrónico</label>
           <input
             onChange={handleEmailChange}
             type="email"
             className="form-control"
-            placeholder="Ingrese su nuevo correo electrónico"
             value={newEmail}
           />
+          <label>Ingrese su nueva contraseña</label>
           <input
             onChange={handlePasswordChange}
             type="password"
             className="form-control"
-            placeholder="Ingrese su nueva contraseña"
             value={newPassword}
           />
           <button className="btn btn-light" type="submit">

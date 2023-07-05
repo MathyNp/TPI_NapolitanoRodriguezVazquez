@@ -11,8 +11,9 @@
 }
 
 #formEdit {
+  padding-left: 500px;
+  align-items: center;
   background-color: #212529;
-  height: 80vh;
   height: max-content;
   padding: 3vh;
   border-radius: 20px;

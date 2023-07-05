@@ -1,0 +1,22 @@
+.contentR {
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 500px;
+}
+
+.product h1 {
+  font-size: 20px;
+}
+
+.btn {
+  margin-top: 10px;
+}
+
+.iconScore {
+  color: coral;
+  margin-right: 5px;
+}
+
+.stars {
+  margin-bottom: 10px;
+}

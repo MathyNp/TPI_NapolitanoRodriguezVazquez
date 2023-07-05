@@ -31,10 +31,19 @@ const Home = () => {
   return (
     <div className="boxT5">
       <div className="boxtext">
-        <h1>TOP 3 JUEGOS DE LA COMUNIDAD</h1>
+        <h1>SELECCIÓN DE JUEGOS RECOMENDADOS POR LA COMUNIDAD</h1>
+
         <p>
-          Bienvenido, esta es una lista de los 3 videojuegos mejor valorados por
-          nuestra comunidad.
+          Nuestra comunidad de jugadores ha compartido sus recomendaciones para
+          ayudarte a encontrar nuevos títulos emocionantes. Estos juegos han
+          sido elogiados por su calidad, diversión y capacidad para cautivar a
+          los jugadores de todas las edades. Sumérgete en mundos virtuales
+          llenos de aventuras, desafíos y sorpresas. Explora diferentes géneros
+          y descubre experiencias únicas que te mantendrán entretenido durante
+          horas. Desde emocionantes juegos de acción hasta cautivadores RPG, hay
+          algo para cada tipo de jugador. Confía en las opiniones de nuestra
+          comunidad y descubre nuevos juegos para disfrutar. ¡Prepárate para una
+          experiencia de juego inolvidable!
         </p>
       </div>
       <div className="map">
@@ -59,7 +68,6 @@ const Home = () => {
                     <h2 className="card-tittle">{game.name}</h2>
                     <h4 className="developer">
                       {game.developer} - <ReviewsScore game={game.name} />
-                      <FontAwesomeIcon icon={faStar} className="iconstar" />
                     </h4>
                   </div>
                 </div>

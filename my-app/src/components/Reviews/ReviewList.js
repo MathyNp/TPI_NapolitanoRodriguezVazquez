@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 import firebaseApp from "../../fb";
+import Reviews from "./Reviews";
+import "./ReviewList.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const ReviewsList = ({ game }) => {
   const [reviews, setReviews] = useState([]);
@@ -90,21 +96,30 @@ const ReviewsList = ({ game }) => {
   };
 
   return (
-    <div>
-      <h2>Reseñas para el juego: {game}</h2>
+    <div className="reviewListMain">
       {displayedReviews.map((review) =>
         review.isDisplayed ? (
-          <div key={review.id}>
-            <p>User: {review.User.stringValue}</p>
-            <p>Description: {review.description.stringValue}</p>
-            <p>Score: {review.score.stringValue}</p>
-            <button onClick={() => handleDeleteReview(review.id)}>
-              Eliminar
-            </button>
+          <div key={review.id} className="reviewContainer">
+            <div className="itemReview">
+              <div className="reviewHeader">
+                <h4 className="tittleGames">
+                  <FontAwesomeIcon icon={faUser} className="icon" />{" "}
+                  {review.User.stringValue}
+                </h4>
+              </div>
+              <h5>{review.description.stringValue}</h5>
+              <hr></hr>
+              <div className="scoreR">
+                <h1>
+                  {" "}
+                  {review.score.stringValue}{" "}
+                  <FontAwesomeIcon icon={faStar} style={{ color: "coral" }} />
+                </h1>
+              </div>
+            </div>
           </div>
         ) : null
       )}
-      <p>Promedio de puntajes: {gamescores.toFixed(2)}</p>
     </div>
   );
 };

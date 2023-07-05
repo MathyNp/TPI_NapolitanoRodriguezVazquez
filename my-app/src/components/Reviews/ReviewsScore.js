@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+
 import firebaseApp from "../../fb";
 
 const ReviewsScore = ({ game }) => {
@@ -57,7 +60,10 @@ const ReviewsScore = ({ game }) => {
   };
   return (
     <div>
-      <p>Promedio de puntajes: {gamescores.toFixed(2)}</p>
+      <h3>
+        {gamescores.toFixed(2)}{" "}
+        <FontAwesomeIcon className="icon-star" icon={faStar} />
+      </h3>{" "}
     </div>
   );
 };

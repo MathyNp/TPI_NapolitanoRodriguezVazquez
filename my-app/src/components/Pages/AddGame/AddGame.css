@@ -1,9 +1,4 @@
-.mainAg {
-  width: 70vh;
-  padding: 10px;
-}
-
-.box {
+.boxA {
   background-color: #212529;
   height: 90vh;
   height: max-content;
@@ -12,6 +7,8 @@
   width: 700px;
   border-bottom: 5px solid coral;
   color: whitesmoke;
+  margin-top: 15px;
+  margin-bottom: 50px;
 }
 
 .selectGenre {
@@ -26,5 +23,13 @@
 }
 
 .formAddgame {
-  width: 500px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.btnForm {
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 10px;
+  padding: 5px;
 }

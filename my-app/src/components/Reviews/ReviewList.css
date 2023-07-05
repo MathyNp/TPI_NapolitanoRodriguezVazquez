@@ -1,0 +1,27 @@
+.reviewListMain {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.reviewContainer {
+  margin-bottom: 15px;
+}
+
+.itemReview {
+  background-color: #2d3035;
+  padding: 10px;
+  text-align: left;
+  border-radius: 10px;
+  width: 100%;
+  color: whitesmoke;
+}
+
+.tittleGames {
+  display: flex;
+  align-items: center;
+  color: whitesmoke;
+}
+
+.scoreR {
+  text-align: right;
+}

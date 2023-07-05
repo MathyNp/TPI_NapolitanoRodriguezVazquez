@@ -27,3 +27,10 @@
   margin: 2vh;
   margin-left: 2vh;
 }
+
+.btnDark {
+  color: whitesmoke;
+  background-color: #212529;
+  border-radius: 10px;
+  border: none;
+}

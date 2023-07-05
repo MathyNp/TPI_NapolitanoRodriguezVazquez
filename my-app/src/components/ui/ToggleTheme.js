@@ -32,7 +32,7 @@ const ToggleTheme = () => {
           <input
             type="checkbox"
             variant={theme === "dark" ? "light" : "dark"}
-            onClick={toggleTheme}
+            onChange={toggleTheme}
             checked={theme === "dark"}
           />
           <span className="slider round"></span>

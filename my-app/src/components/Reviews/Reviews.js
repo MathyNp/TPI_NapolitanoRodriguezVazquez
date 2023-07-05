@@ -4,6 +4,8 @@ import { getAuth } from "firebase/auth";
 
 import firebaseApp from "../../fb";
 
+import "./Reviews.css";
+
 const auth = getAuth(firebaseApp);
 
 const addReview = async (review) => {
@@ -33,7 +35,7 @@ const addReview = async (review) => {
   }
 };
 
-const Reviews = ({ game, user }) => {
+const Reviews = ({ game, user, score }) => {
   const initialReviewsValue = {
     emailUser: `${auth.currentUser.email}`,
     gameName: game,
@@ -65,50 +67,62 @@ const Reviews = ({ game, user }) => {
     setReviews({ ...reviews, [name]: value });
   };
 
+  console.log(game);
+
   return (
-    <div>
-      <form className="card card-body" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
-            placeholder={`${auth.currentUser.email}`}
-            disabled
-            name="emailUser"
-            onChange={handleInputChange}
-          />
+    <div className="mainForm">
+      <form onSubmit={handleSubmit} className="formRev">
+        <div className="contentR">
+          <div>
+            <input
+              type="text"
+              className="form-control"
+              placeholder={`${auth.currentUser.email}`}
+              disabled
+              name="emailUser"
+              onChange={handleInputChange}
+            />
+          </div>
+          <hr className="hrRev"></hr>
+          <div>
+            <input
+              type="text"
+              className="form-control"
+              name="gameName"
+              disabled
+              placeholder={game}
+            />
+          </div>
+          <hr className="hrRev"></hr>
+          <div className="stars">
+            <input
+              type="number"
+              className="form-control"
+              name="score"
+              placeholder="Valoración 1-5"
+              onChange={handleInputChange}
+              value={reviews.score}
+              max="5"
+              min="1"
+            />
+          </div>
+
+          <hr></hr>
+          <div className="tx">
+            <textarea
+              type="text"
+              rows="3"
+              className="form-control"
+              name="description"
+              placeholder="Comentarios"
+              onChange={handleInputChange}
+              value={reviews.description}
+            ></textarea>
+          </div>
+          <div className="btn ">
+            <button className="btnLight">Publicar mi reseña</button>
+          </div>
         </div>
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
-            name="gameName"
-            disabled
-            placeholder={game}
-          />
-        </div>
-        <div className="form-group">
-          <textarea
-            type="text"
-            rows="3"
-            className="form-control"
-            name="description"
-            placeholder="Comentarios"
-            onChange={handleInputChange}
-            value={reviews.description}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="number"
-            className="form-control"
-            name="score"
-            placeholder="Valoración 0-5"
-            onChange={handleInputChange}
-            value={reviews.score}
-          />
-        </div>
-        <button className="btn btn-block btn-primary">Enviar reseña</button>
       </form>
     </div>
   );

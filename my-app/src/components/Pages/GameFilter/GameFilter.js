@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRotateRight } from "@fortawesome/free-solid-svg-icons";
 
 import Game from "../../GameItem/GameItems";
+import ReviewsScore from "../../Reviews/ReviewsScore";
 
 const GameFilter = ({
   onFilterGenreChange,
@@ -52,7 +53,7 @@ const GameFilter = ({
   return (
     <>
       <div className="GameFilterMain">
-        <button onClick={ResetFilter} className="btn btn-dark">
+        <button onClick={ResetFilter} className="btnDark">
           <FontAwesomeIcon icon={faArrowRotateRight} className="icon" />
           Reiniciar filtros
         </button>

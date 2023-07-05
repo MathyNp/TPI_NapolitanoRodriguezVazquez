@@ -6,7 +6,17 @@ import { getAuth, signOut } from "firebase/auth";
 import "./Navbar.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGamepad, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheck,
+  faCircleUser,
+  faGamepad,
+  faSquarePlus,
+  faUserCheck,
+  faUserMd,
+  faUserSecret,
+  faUserTag,
+  faUsersViewfinder,
+} from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -41,12 +51,7 @@ function NavBar(props) {
       {props.loading1 === false ? (
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            <FontAwesomeIcon
-              className="icon"
-              icon={faGamepad}
-              shake
-              size="xl"
-            />
+            <FontAwesomeIcon className="icon" icon={faGamepad} size="xl" />
           </a>
           <button
             className="navbar-toggler"
@@ -103,11 +108,8 @@ function NavBar(props) {
                         id="desp2"
                       >
                         {" "}
-                        <FontAwesomeIcon
-                          icon={faPenToSquare}
-                          className="icon"
-                        />
-                        Editar Perfil{" "}
+                        <FontAwesomeIcon icon={faCircleUser} className="icon" />
+                        Mi perfil{" "}
                       </a>
                     </li>
 

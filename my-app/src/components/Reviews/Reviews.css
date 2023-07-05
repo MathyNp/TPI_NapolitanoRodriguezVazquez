@@ -1,0 +1,16 @@
+.formRev {
+  width: 100%;
+}
+
+.btn {
+  margin: 10px;
+}
+
+.btnLight {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #2d3035;
+  color: whitesmoke;
+  border: none;
+  border-bottom: coral 3px solid;
+}
