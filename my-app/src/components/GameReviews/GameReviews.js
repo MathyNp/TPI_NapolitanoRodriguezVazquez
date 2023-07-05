@@ -10,6 +10,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 import Reviews from "../Reviews/Reviews";
 import ReviewsList from "../Reviews/ReviewList";
+import ReviewsScore from "../Reviews/ReviewsScore";
 
 const auth = getAuth(firebaseApp);
 function GamesReviews({
@@ -36,8 +37,7 @@ function GamesReviews({
                 <h3>Genero: {genre}</h3>
                 <h3>Desarrolladora: {developer}</h3>
                 <h2 className="score">
-                  {score}{" "}
-                  <FontAwesomeIcon icon={faStar} style={{ color: "coral" }} />{" "}
+                  <ReviewsScore game={name} />
                 </h2>
                 <p>{description}</p>
 

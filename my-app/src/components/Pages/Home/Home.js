@@ -7,6 +7,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 import { ThemeContext } from "../../Services/ThemeContext";
 import games from "../../../games.json";
+import ReviewsScore from "../../Reviews/ReviewsScore";
 
 const Home = () => {
   const { theme } = useContext(ThemeContext);
@@ -57,7 +58,7 @@ const Home = () => {
                   <div className="tittle-developer">
                     <h2 className="card-tittle">{game.name}</h2>
                     <h4 className="developer">
-                      {game.developer} - {game.score}
+                      {game.developer} - <ReviewsScore game={game.name} />
                       <FontAwesomeIcon icon={faStar} className="iconstar" />
                     </h4>
                   </div>
