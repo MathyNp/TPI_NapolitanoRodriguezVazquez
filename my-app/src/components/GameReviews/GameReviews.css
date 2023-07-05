@@ -74,12 +74,36 @@ p {
 #btnRev {
   margin-top: 20px;
 }
-.cardReview {
-  display: grid;
-  justify-content: center;
-  grid-column: auto;
-}
+
 .link a {
   color: coral;
   text-decoration: none;
+}
+
+.boxFormRe {
+  display: flex;
+  background-color: #212529;
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  min-width: 600px;
+  max-width: 1300px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.formReviewsMain {
+  width: 100%;
+}
+
+#boxRev {
+  background-color: #212529;
+  color: whitesmoke;
+}
+
+#boxRevBot {
+  background-color: #212529;
+  color: whitesmoke;
+  margin-bottom: 80px;
 }

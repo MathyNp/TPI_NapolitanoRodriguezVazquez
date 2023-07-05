@@ -76,7 +76,7 @@ const AddGame = () => {
 
   return (
     <div className="main">
-      <div className="box">
+      <div className="boxA">
         <div className="mainAg">
           <h1 className="tittle-form">Formulario para agregar juegos</h1>
           <p>
@@ -157,7 +157,7 @@ const AddGame = () => {
               ></textarea>
             </div>
 
-            <div className="mb-2">
+            <div className="mb-1">
               <br />
               <label>Selecciona las plataformas disponibles:</label>
               <br />
@@ -263,8 +263,8 @@ const AddGame = () => {
               </div>
             </div>
 
-            <button type="submit" className="mt-2">
-              Agregar videojuego
+            <button type="submit" className="btnForm">
+              Completar formulario
             </button>
           </form>
         </div>

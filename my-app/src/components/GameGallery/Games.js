@@ -2,8 +2,7 @@ import React from "react";
 
 import "./Games.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import ReviewsScore from "../Reviews/ReviewsScore";
 
 const GamesGalery = (props) => {
   return (
@@ -26,8 +25,7 @@ const GamesGalery = (props) => {
               </h4>
               <p className="developer">
                 <a href="#" className="developer-link">
-                  {props.developer} - {props.score}
-                  <FontAwesomeIcon className="icon-star" icon={faStar} />{" "}
+                  {props.developer} - <ReviewsScore game={props.name} />
                 </a>
               </p>
             </div>

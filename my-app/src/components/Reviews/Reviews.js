@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 
 import firebaseApp from "../../fb";
 
-import "./FormReview.css";
+import "./Reviews.css";
 
 const auth = getAuth(firebaseApp);
 
@@ -35,7 +35,7 @@ const addReview = async (review) => {
   }
 };
 
-const Reviews = ({ game, user }) => {
+const Reviews = ({ game, user, score }) => {
   const initialReviewsValue = {
     emailUser: `${auth.currentUser.email}`,
     gameName: game,
@@ -67,9 +67,11 @@ const Reviews = ({ game, user }) => {
     setReviews({ ...reviews, [name]: value });
   };
 
+  console.log(game);
+
   return (
     <div className="mainForm">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="formRev">
         <div className="contentR">
           <div>
             <input
@@ -81,6 +83,7 @@ const Reviews = ({ game, user }) => {
               onChange={handleInputChange}
             />
           </div>
+          <hr className="hrRev"></hr>
           <div>
             <input
               type="text"
@@ -90,7 +93,7 @@ const Reviews = ({ game, user }) => {
               placeholder={game}
             />
           </div>
-
+          <hr className="hrRev"></hr>
           <div className="stars">
             <input
               type="number"
@@ -103,19 +106,21 @@ const Reviews = ({ game, user }) => {
               min="1"
             />
           </div>
-          <textarea
-            type="text"
-            rows="3"
-            className="form-control"
-            name="description"
-            placeholder="Comentarios"
-            onChange={handleInputChange}
-            value={reviews.description}
-          ></textarea>
+
+          <hr></hr>
+          <div className="tx">
+            <textarea
+              type="text"
+              rows="3"
+              className="form-control"
+              name="description"
+              placeholder="Comentarios"
+              onChange={handleInputChange}
+              value={reviews.description}
+            ></textarea>
+          </div>
           <div className="btn ">
-            <button className="btn btn-light" type="submit">
-              Enviar
-            </button>
+            <button className="btnLight">Publicar mi reseña</button>
           </div>
         </div>
       </form>

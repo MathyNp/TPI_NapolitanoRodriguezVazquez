@@ -7,7 +7,7 @@
     "platform": ["PC"],
     "developer": "Riot Games",
     "description": "League of Legends es un popular juego de estrategia en tiempo real en el género de los MOBA (Multiplayer Online Battle Arena). Los jugadores forman equipos y se enfrentan en emocionantes partidas donde deben destruir el nexo enemigo mientras controlan a poderosos campeones con habilidades únicas.",
-    "score": 0
+    "score": ""
   },
   {
     "id": 1,
@@ -17,7 +17,7 @@
     "platform": ["PC", "PlayStation 4", "Xbox One", "Nintendo Switch"],
     "developer": "CD Projekt RED",
     "description": "The Witcher 3: Wild Hunt es un aclamado videojuego de rol de acción desarrollado por CD Projekt Red y lanzado en 2015. Basado en la exitosa serie de libros del escritor polaco Andrzej Sapkowski, el juego te sumerge en un vasto mundo abierto de fantasía medieval llamado el Continente.",
-    "score": 5
+    "score": ""
   },
   {
     "id": 2,
@@ -33,7 +33,7 @@
     ],
     "developer": "Rockstar Games",
     "description": "Grand Theft Auto V es un juego de acción y aventura en Los Santos. Sigue a Michael, Franklin y Trevor, cada uno con su propia historia. Los jugadores realizan atracos y desafíos en un mundo abierto. Exploran la ciudad, participan en actividades y disfrutan del multijugador. La narrativa es rica y los personajes inolvidables.",
-    "score": 0
+    "score": ""
   },
   {
     "id": 3,
@@ -44,7 +44,7 @@
 
     "developer": "Nintendo EPD",
     "description": "En The Legend of Zelda: Breath of the Wild, el jugador asume el papel de Link, quien despierta después de un largo sueño en un mundo postapocalíptico. Su misión es derrotar a Ganon y salvar al reino de Hyrule.",
-    "score": 0
+    "score": ""
   },
   {
     "id": 4,
@@ -62,7 +62,7 @@
 
     "developer": "Epic Games",
     "description": " Fortnite es un popular videojuego de batalla real desarrollado por Epic Games. Los jugadores luchan en una isla hasta que solo queda un ganador. Combina elementos de construcción, acción y estrategia. Su estilo artístico único, eventos en vivo y actualizaciones constantes lo han convertido en un juego muy popular y emocionante.",
-    "score": 4
+    "score": ""
   },
   {
     "id": 5,
@@ -80,7 +80,7 @@
 
     "developer": "Mojang Studios",
     "description": "Los jugadores exploran un vasto paisaje, recolectan recursos y construyen estructuras utilizando bloques. Pueden enfrentarse a enemigos, criar animales y cultivar cultivos para sobrevivir. Con su estilo visual distintivo y una amplia comunidad de jugadores, Minecraft ofrece una experiencia creativa sin límites.",
-    "score": 5
+    "score": ""
   },
   {
     "id": 6,
@@ -90,7 +90,7 @@
     "platform": ["PC", "PlayStation 4", "Xbox One", "Nintendo Switch"],
 
     "description": "Overwatch es un popular videojuego de disparos en primera persona (FPS) desarrollado y publicado por Blizzard Entertainment. Fue lanzado en 2016 y se ha convertido en uno de los juegos más populares en su género. En Overwatch, los jugadores forman equipos de seis personas y asumen el papel de héroes con habilidades únicas en un entorno de combate en equipo. El juego presenta una amplia variedad de héroes, cada uno con su propio estilo de juego, habilidades especiales y roles en el equipo, como tanques, DPS (daño por segundo) y sanadores.",
-    "score": 0,
+    "score": "",
     "developer": "Blizzard Entertainment"
   },
   {
@@ -100,7 +100,7 @@
     "img": "https://th.bing.com/th/id/OIP.XyzJMuq152Nds6urQ0GnMAHaHa?pid=ImgDet&rs=1",
     "platform": ["PC", "PlayStation 4", "Xbox One", "Stadia"],
 
-    "score": 0,
+    "score": "",
     "developer": "Rockstar Games",
     "description": "Red Dead Redemption 2 es un videojuego de acción y aventura desarrollado y publicado por Rockstar Games. Lanzado en 2018, es la secuela del exitoso Red Dead Redemption y está ambientado en el Viejo Oeste americano a finales del siglo XIX. El juego sigue la historia de Arthur Morgan, un forajido miembro de la banda de Van der Linde. El jugador asume el papel de Arthur y se sumerge en un vasto mundo abierto, lleno de detalles y vida salvaje, donde se enfrentará a desafíos y decisiones que afectarán el desarrollo de la historia."
   },
@@ -112,7 +112,7 @@
     "platform": ["Nintendo Switch"],
 
     "developer": "Bandai Namco Studios",
-    "score": 0,
+    "score": "",
     "description": "Super Smash Bros. Ultimate es un videojuego de lucha desarrollado por Nintendo para la consola Nintendo Switch. Lanzado en 2018, es la quinta entrega de la popular serie Super Smash Bros. y es considerado como la versión definitiva del juego, ya que incluye a todos los personajes jugables y escenarios de las entregas anteriores, así como nuevos añadidos. El objetivo principal de Super Smash Bros. Ultimate es enfrentar a diversos personajes icónicos de los videojuegos en emocionantes combates. El juego cuenta con un extenso elenco de más de 70 personajes seleccionables, que incluyen a personajes famosos de Nintendo como Mario, Link, Donkey Kong y Pikachu, así como personajes de otras franquicias de videojuegos como Sonic, Mega Man, Pac-Man y muchos más."
   },
   {
@@ -128,7 +128,7 @@
       "Xbox Series X/S"
     ],
 
-    "score": 0,
+    "score": "",
     "developer": "Activision",
     "description": "Call of Duty: Warzone es un popular videojuego de batalla real (battle royale) desarrollado y publicado por Activision. Fue lanzado en marzo de 2020 y está disponible de forma gratuita para jugar en PlayStation, Xbox y PC. En Call of Duty: Warzone, hasta 150 jugadores se enfrentan en un mapa masivo y abierto en una intensa batalla a muerte. El objetivo es ser el último jugador o equipo en pie. Los jugadores pueden unirse en equipos de hasta tres jugadores o participar en partidas en solitario."
   },

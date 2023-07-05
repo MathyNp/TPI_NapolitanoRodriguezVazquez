@@ -62,8 +62,8 @@ function Login() {
   }
   return (
     <div className="main">
-      <div className="box">
-        <form onSubmit={submitHandler}>
+      <div className="boxL">
+        <form onSubmit={submitHandler} className="formAdd">
           <h2 className="reg-log">
             {" "}
             {isRegister ? "Formulario de registro" : "Iniciar sesion"}{" "}
@@ -107,15 +107,10 @@ function Login() {
 
           <input
             type="submit"
-            className="btn btn-light"
             value={isRegister ? "Registrase" : "Inicia Sesion"}
           ></input>
 
-          <button
-            id="btn-lr"
-            onClick={() => setIsRegister(!isRegister)}
-            className="btn btn-light"
-          >
+          <button id="btn-lr" onClick={() => setIsRegister(!isRegister)}>
             {isRegister ? "Ya tengo una cuenta" : "Quiero Registrarme"}
           </button>
         </form>
