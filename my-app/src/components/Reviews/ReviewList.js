@@ -13,7 +13,6 @@ const ReviewsList = ({ game }) => {
   const [gamescores, setGameScores] = useState(0);
   const [displayedReviews, setDisplayedReviews] = useState([]);
   const [deletedReviewIds, setDeletedReviewIds] = useState([]);
-  const [reviewsUID, setReviewsUID] = useState([]);
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -26,16 +25,11 @@ const ReviewsList = ({ game }) => {
           const data = await response.json();
 
           const reviewsData = data.documents.map((doc) => ({
-            id: doc.name,
+            id: doc.name.split("/").pop(),
             ...doc.fields,
           }));
+
           setReviews(reviewsData);
-          // const reviewsID = data.documents.map((doc) => ({
-          //   id: doc.name,
-          //
-          // }));
-          // fijate aca amigo, es algo asi pero que solamente guarde las uid, ns muy bien como hacerlo, probe de todo
-          // setReviewsID(reviewsID);
         } else {
           console.error("Error al obtener las reseñas");
         }
@@ -46,6 +40,7 @@ const ReviewsList = ({ game }) => {
 
     fetchReviews();
   }, []);
+
   console.log(reviews);
   useEffect(() => {
     const filteredReviews = reviews.filter(
@@ -75,18 +70,16 @@ const ReviewsList = ({ game }) => {
     return totalScore / reviews.length;
   };
 
-  const handleDeleteReview = async () => {
+  const handleDeleteReview = async (reviewID) => {
     try {
       await fetch(
-        `https://firestore.googleapis.com/v1/projects/${firebaseApp.options.projectId}/databases/(default)/documents/reviews/`,
+        `https://firestore.googleapis.com/v1/projects/${firebaseApp.options.projectId}/databases/(default)/documents/reviews/${reviewID}`,
         {
           method: "DELETE",
         }
       );
-      //Aca amigo, tenes que poner la variable al final. reviews/${variable} y que elimine la reseña
       const updatedReviews = displayedReviews.map((review) => {
-        if (review.id === reviews.id) {
-          //esto seria === variable, lo que hace es que si son ig la review.id q son todas las id, con la variable, la elimina al instante de la pagina y de la base de datos
+        if (review.uid === reviewID) {
           return {
             ...review,
             isDisplayed: false,
@@ -96,7 +89,7 @@ const ReviewsList = ({ game }) => {
       });
 
       setDisplayedReviews(updatedReviews);
-      setDeletedReviewIds([...deletedReviewIds, reviews.uid]);
+      setDeletedReviewIds([...deletedReviewIds, reviewID]);
     } catch (error) {
       console.error("Error al eliminar la reseña", error);
     }

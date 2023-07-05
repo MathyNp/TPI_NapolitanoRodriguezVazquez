@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import "./Navbar.css";
 
 import firebaseApp from "../../fb";
 import { getAuth, signOut } from "firebase/auth";
 
-import Fuse from "fuse.js";
-import games from "../../games.json";
+import "./Navbar.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGamepad, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
@@ -14,8 +13,10 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 import Loader from "../Loader/Loader";
-import { useContext } from "react";
 import ToggleTheme from "../ui/ToggleTheme";
+import games from "../../games.json";
+import Fuse from "fuse.js";
+
 const auth = getAuth(firebaseApp);
 
 function NavBar(props) {
