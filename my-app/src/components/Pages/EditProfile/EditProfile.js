@@ -55,7 +55,6 @@ const EditProfile = () => {
 
   return (
     <div>
-      <ReviewsUser />
       <div className="conteinerEdit">
         <form id="formEdit" onSubmit={handleSubmit}>
           <h1 style={{ paddingBottom: "25px" }}>
@@ -80,6 +79,10 @@ const EditProfile = () => {
             Guardar cambios
           </button>
         </form>
+      </div>
+
+      <div className="centerRev">
+        <ReviewsUser />
       </div>
     </div>
   );

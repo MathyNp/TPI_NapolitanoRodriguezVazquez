@@ -25,3 +25,18 @@
 .scoreR {
   text-align: right;
 }
+
+.reviewListUser {
+  width: 65%;
+  background-color: #212529;
+  padding: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+}
+
+.conteinerReview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

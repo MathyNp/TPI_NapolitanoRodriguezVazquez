@@ -50,39 +50,44 @@ const ReviewsUser = ({ game }) => {
   return (
     <div className="reviewListMain">
       {!onreviews && (
-        <button style={{ width: "auto" }} onClick={() => setOnReviews(true)}>
+        <button className="btn btn-dark" onClick={() => setOnReviews(true)}>
           Ver mis Reseñas
         </button>
       )}
       {onreviews && (
-        <button style={{ width: "auto" }} onClick={() => setOnReviews(false)}>
+        <button className="btn btn-dark" onClick={() => setOnReviews(false)}>
           Ocultar Reseñas
         </button>
       )}
       {onreviews ? (
-        <div className="reviewListMain">
-          {reviewsuser.map((review) => (
-            <div key={review.id} className="reviewContainer">
-              <div className="itemReview">
-                <div className="reviewHeader">
-                  <h4 className="tittleGames">
-                    <FontAwesomeIcon icon={faUser} className="icon" />{" "}
-                    {review.User.stringValue}
-                  </h4>
-                  <h4>{review.gameName.stringValue}</h4>
-                </div>
-                <h5>{review.description.stringValue}</h5>
-                <hr></hr>
-                <div className="scoreR">
-                  <h1>
-                    {" "}
-                    {review.score.stringValue}{" "}
-                    <FontAwesomeIcon icon={faStar} style={{ color: "coral" }} />
-                  </h1>
+        <div className="conteinerReview">
+          <div className="reviewListUser">
+            {reviewsuser.map((review) => (
+              <div key={review.id} className="reviewContainer">
+                <div className="itemReview">
+                  <div className="reviewHeader">
+                    <h4 className="tittleGames">
+                      <FontAwesomeIcon icon={faUser} className="icon" />{" "}
+                      {review.User.stringValue}
+                    </h4>
+                    <h4>{review.gameName.stringValue}</h4>
+                  </div>
+                  <h5>{review.description.stringValue}</h5>
+                  <hr></hr>
+                  <div className="scoreR">
+                    <h1>
+                      {" "}
+                      {review.score.stringValue}{" "}
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        style={{ color: "coral" }}
+                      />
+                    </h1>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       ) : (
         <></>
