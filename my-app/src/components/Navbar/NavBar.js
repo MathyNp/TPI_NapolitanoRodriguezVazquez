@@ -7,17 +7,11 @@ import "./Navbar.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCheck,
   faCircleUser,
   faGamepad,
   faSquarePlus,
-  faUserCheck,
-  faUserMd,
-  faUserSecret,
-  faUserTag,
-  faUsersViewfinder,
 } from "@fortawesome/free-solid-svg-icons";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";

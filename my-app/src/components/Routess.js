@@ -48,6 +48,7 @@ function Routess(props) {
                 id={games.id}
                 description={games.description}
                 score={games.score}
+                rol={props.rol}
               />
             }
           />

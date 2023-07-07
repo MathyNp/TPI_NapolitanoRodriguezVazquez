@@ -11,7 +11,6 @@
 }
 
 #formEdit {
-  padding-left: 500px;
   align-items: center;
   background-color: #212529;
   height: max-content;
@@ -50,13 +49,4 @@
   border-bottom: 5px solid coral;
   margin-bottom: 20px;
   border-radius: 8px;
-}
-
-.centerRev {
-  margin-top: 20px;
-
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

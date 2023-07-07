@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 import firebaseApp from "../../fb";
-import Reviews from "./Reviews";
+
 import "./ReviewList.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-const ReviewsList = ({ game }) => {
+const ReviewsList = ({ game, rol }) => {
   const [reviews, setReviews] = useState([]);
   const [gamescores, setGameScores] = useState(0);
   const [displayedReviews, setDisplayedReviews] = useState([]);
@@ -117,6 +117,17 @@ const ReviewsList = ({ game }) => {
                 </h1>
               </div>
             </div>
+
+            <p>
+              {rol === "Admin" && (
+                <button
+                  className="btnLight"
+                  onClick={() => handleDeleteReview(review.id)}
+                >
+                  Eliminar reseña
+                </button>
+              )}
+            </p>
           </div>
         ) : null
       )}

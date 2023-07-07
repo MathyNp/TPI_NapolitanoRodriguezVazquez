@@ -14,7 +14,7 @@ import ReviewsScore from "../Reviews/ReviewsScore";
 
 const auth = getAuth(firebaseApp);
 function GamesReviews({
-  props,
+  rol,
   name,
   genre,
   img,
@@ -52,7 +52,7 @@ function GamesReviews({
           </div>
           <div className="box" id="boxRevBot">
             <div className="cardReview">
-              <ReviewsList game={name} />
+              <ReviewsList game={name} rol={rol} />
             </div>
           </div>
         </div>
