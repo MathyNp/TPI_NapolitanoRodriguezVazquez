@@ -17,3 +17,13 @@ div::-webkit-scrollbar-track {
 div::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
+
+#Dark {
+  background-color: black;
+  color: white;
+}
+
+#Light {
+  background-color: aliceblue;
+  color:darkblue;
+}
